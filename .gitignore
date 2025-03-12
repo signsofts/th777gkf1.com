@@ -32,4 +32,3 @@ nbproject/
 # ไฟล์ทดสอบหรือข้อมูลส่วนตัว
 /tests/_output/*
 /tests/coverage/*
-
