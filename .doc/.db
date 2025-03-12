@@ -1,0 +1,1179 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Jun 26, 2024 at 11:33 PM
+-- Server version: 11.4.2-MariaDB
+-- PHP Version: 8.1.25
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `tommy_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts_admin`
+--
+
+CREATE TABLE `accounts_admin` (
+  `ac_id` bigint(255) UNSIGNED NOT NULL,
+  `ac_code` varchar(255) NOT NULL,
+  `ac_email` varchar(255) NOT NULL,
+  `ac_password` text NOT NULL,
+  `ac_fname` varchar(100) NOT NULL,
+  `ac_lname` varchar(100) NOT NULL,
+  `ac_niname` varchar(100) NOT NULL,
+  `datetime` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `ac_delete` tinyint(1) NOT NULL DEFAULT 0,
+  `RoleID` int(11) NOT NULL COMMENT 'เก็บข้อมูลบทบาทของพนักงาน'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `accounts_admin`
+--
+
+INSERT INTO `accounts_admin` (`ac_id`, `ac_code`, `ac_email`, `ac_password`, `ac_fname`, `ac_lname`, `ac_niname`, `datetime`, `created_at`, `updated_at`, `deleted_at`, `ac_delete`, `RoleID`) VALUES
+(1, 'AC-00001', 'singsoft.sw@gmail.com', '$2y$10$4IWS/MKlpdiVP6rt01NNLuS6W6V/6YetpKxZTO3/Uj70iVDXus0Mm', 'admin', 'admin', 'admin', NULL, '2024-06-03 07:08:37', '2024-06-15 07:51:24', NULL, 0, 4),
+(2, '', 'user@gmail.com', 'user@gmail.com', 'กาแฟอราบิก้า', 'กffff', '222', NULL, '2024-06-15 08:35:14', '2024-06-26 20:57:01', NULL, 0, 2),
+(3, '78276451', 'user2@gmail.com', '$2y$10$znHE12CvD6KyLutDdMJC6OQrsg8ZDZazAyLc8I0tFrC8b2wrjMmSW', 'กาแฟอราบิก้า', 'กffff', '222', NULL, '2024-06-15 08:45:43', '2024-06-15 10:54:02', NULL, 0, 1),
+(4, 'gbx-52756248', 'user3@gmail.com', '$2y$10$Tg09VSULU8AbwBB0tddXJunsQH6mXcdTMwC/6ETPumGduas47npAu', 'กาแฟอราบิก้า', 'กffff', '222', NULL, '2024-06-15 08:48:05', '2024-06-15 11:03:31', NULL, 1, 3),
+(5, 'IOy-44946485', 'user4@gmail.com', '$2y$10$UowJea7HSyTYiQFZZHe.ruC4CdWIQj.fCLPcWhAzXvvXbh2X2J8Si', 'กาแฟอราบิก้าe', 'กffff', '222', NULL, '2024-06-15 10:54:26', '2024-06-15 11:39:37', NULL, 1, 2),
+(6, 'bmU-85368698', 'system@system.com', '$2y$10$ma0fgCcmUmN4sC0mw.yvVOAxU100bJlnsxyoenmsmniNHmbgh8j.C', 'system', 'system', 'system', NULL, '2024-06-18 20:21:27', '2024-06-18 20:21:27', NULL, 0, 1),
+(7, 'i16-57174176', 'user34@gmail.com', '$2y$10$97u1CsqF52Hwht6E.e9gJOXP7/vfVDtspxshcxxv9Ai3ycbXefwdS', 'ดดด', 'ดดด', 'ดดด', NULL, '2024-06-26 20:58:18', '2024-06-26 20:58:18', NULL, 0, 3),
+(8, 'cvA-31888117', 'user1@gmail.com', '$2y$10$FfpTViE42PV5RZfUfNSoe.8T4OpRta.TolI6SINy/J8cxM2D.LbKy', 'ดดด', 'ดดด', 'ดดด', NULL, '2024-06-26 21:16:03', '2024-06-26 21:16:03', NULL, 0, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banklists`
+--
+
+CREATE TABLE `banklists` (
+  `blit_id` bigint(20) NOT NULL,
+  `ac_code` varchar(255) NOT NULL COMMENT 'รหัสแอดมิน',
+  `bank_id` bigint(20) NOT NULL COMMENT 'รหัสชื่อธนาคาร',
+  `blit_number` int(11) NOT NULL COMMENT 'เลขบัญชี',
+  `blit_name` varchar(100) NOT NULL COMMENT 'ชื่อบัญชี',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `blit_delete` tinyint(1) NOT NULL DEFAULT 0 COMMENT '1 delete',
+  `blit_image` varchar(100) DEFAULT NULL,
+  `blit_remain` decimal(65,2) NOT NULL DEFAULT 0.00,
+  `blit_delete_ad_code` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='รายการบัญชี';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banks`
+--
+
+CREATE TABLE `banks` (
+  `bank_id` bigint(20) NOT NULL,
+  `bank_name` varchar(100) DEFAULT NULL,
+  `bank_icon` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `update_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `bank_delete` tinyint(1) DEFAULT 0,
+  `bank_nameEN` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='รายชื่อธนาคารทั้งหมด';
+
+--
+-- Dumping data for table `banks`
+--
+
+INSERT INTO `banks` (`bank_id`, `bank_name`, `bank_icon`, `created_at`, `update_at`, `bank_delete`, `bank_nameEN`) VALUES
+(1, 'ธนาคารแห่งประเทศไทย', 'Seal_of_the_Bank_of_Thailand', '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(2, 'ธนาคารกรุงเทพ', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(3, 'ธนาคารกสิกรไทย', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(4, 'ธนาคารกรุงไทย', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(5, 'ธนาคารทหารไทยธนชาต', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(6, 'ธนาคารไทยพาณิชย์', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(7, 'ธนาคารกรุงศรีอยุธยา', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(8, 'ธนาคารเกียรตินาคินภัทร', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(9, 'ธนาคารซีไอเอ็มบีไทย', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(10, 'ธนาคารทิสโก้', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(11, 'ธนาคารยูโอบี', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(12, 'ธนาคารไทยเครดิต', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(13, 'ธนาคารแลนด์ แอนด์ เฮ้าส์', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(14, 'ธนาคารไอซีบีซี (ไทย)', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(15, 'ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(16, 'ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(17, 'ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(18, 'ธนาคารออมสิน', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(19, 'ธนาคารอาคารสงเคราะห์', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(20, 'ธนาคารอิสลามแห่งประเทศไทย', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(21, 'ธนาคารเมกะ สากลพาณิชย์', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(22, 'ธนาคารแห่งประเทศจีน (ไทย)', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(23, 'ธนาคารเอเอ็นแซด (ไทย)', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(24, 'ธนาคารซูมิโตโม มิตซุย ทรัสต์ (ไทย)', NULL, '2024-06-09 07:00:44', '2024-06-09 07:00:44', 0, ''),
+(25, 'System Bank', NULL, '2024-06-18 20:29:34', '2024-06-18 20:29:34', 0, 'System Bank');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bank_statements`
+--
+
+CREATE TABLE `bank_statements` (
+  `bstate_id` bigint(20) NOT NULL,
+  `bank_id` bigint(20) NOT NULL,
+  `blit_id` bigint(20) NOT NULL,
+  `userId` varchar(255) DEFAULT NULL,
+  `status_id` int(11) DEFAULT NULL,
+  `bstate_IN` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'สถานะเงินเข้า',
+  `bstate_out` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'สถานะออก',
+  `bstate_note` text DEFAULT NULL COMMENT 'หมายเหตุ',
+  `bstate_remain` decimal(65,2) NOT NULL COMMENT 'คงเหลือ',
+  `money_incoming` decimal(65,2) NOT NULL COMMENT 'เงินเข้า',
+  `money_out` decimal(65,2) NOT NULL COMMENT 'เงินออก',
+  `bstate_delete` tinyint(1) NOT NULL DEFAULT 0,
+  `datetime` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` int(11) DEFAULT NULL,
+  `ac_code` varchar(100) NOT NULL,
+  `bstate_slip` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gambling_histories`
+--
+
+CREATE TABLE `gambling_histories` (
+  `gamb_ID` bigint(20) NOT NULL,
+  `userId` varchar(255) DEFAULT NULL,
+  `glco_ID` bigint(20) DEFAULT NULL COMMENT 'รอบลง',
+  `groupLive_ID` bigint(20) DEFAULT NULL,
+  `msID` bigint(20) DEFAULT NULL COMMENT 'เกม',
+  `groupId` varchar(255) DEFAULT NULL COMMENT 'กลุ่ม',
+  `grId` bigint(20) DEFAULT NULL COMMENT 'เลือกลง',
+  `glco_quantity` decimal(30,2) DEFAULT NULL COMMENT 'ลงเงิน',
+  `glco_lose` tinyint(1) DEFAULT 0 COMMENT 'แพ้',
+  `glco_win` tinyint(1) DEFAULT 0 COMMENT 'ชนะ',
+  `glco_multiply` decimal(10,2) DEFAULT NULL COMMENT 'ต่อ 1:1 1:20',
+  `glco_refund` decimal(65,2) DEFAULT NULL COMMENT 'กรณีชนะ คืนเงิน',
+  `datetime` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `glco_delete` tinyint(1) DEFAULT 0,
+  `glco_cancel` tinyint(1) DEFAULT 0,
+  `timestamp` varchar(100) DEFAULT NULL,
+  `gamb_text` text DEFAULT NULL,
+  `isRedelivery` varchar(100) NOT NULL DEFAULT '0',
+  `glco_success` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gamemasters`
+--
+
+CREATE TABLE `gamemasters` (
+  `msID` bigint(20) NOT NULL,
+  `msNameT` varchar(50) DEFAULT NULL,
+  `msNameE` varchar(50) DEFAULT NULL,
+  `msDelete` tinyint(1) DEFAULT 0,
+  `datetime` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `HowToPlayTextTH` text DEFAULT '-',
+  `HowToPlayTextEN` text DEFAULT '-',
+  `msRulesForPlayTH` text NOT NULL DEFAULT '-',
+  `msRulesForPlayEN` text NOT NULL DEFAULT '-'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `gamemasters`
+--
+
+INSERT INTO `gamemasters` (`msID`, `msNameT`, `msNameE`, `msDelete`, `datetime`, `created_at`, `updated_at`, `deleted_at`, `HowToPlayTextTH`, `HowToPlayTextEN`, `msRulesForPlayTH`, `msRulesForPlayEN`) VALUES
+(1, 'เสือ - มังกร', 'Tiger - Dragon', 0, NULL, '2024-06-05 18:52:47', '2024-06-24 18:14:24', NULL, NULL, NULL, '-', '-'),
+(2, 'บาคาร่า', 'Baccarat', 0, NULL, '2024-06-05 18:52:47', '2024-06-24 18:14:28', NULL, NULL, NULL, '-', '-');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gamerules`
+--
+
+CREATE TABLE `gamerules` (
+  `grId` bigint(20) NOT NULL,
+  `grName` varchar(100) DEFAULT NULL,
+  `grKeyLine` varchar(10) DEFAULT NULL,
+  `grMultiply` decimal(10,2) DEFAULT 1.00,
+  `grDelete` tinyint(1) DEFAULT 0,
+  `msID` bigint(20) DEFAULT NULL,
+  `grNote` text DEFAULT NULL,
+  `grNameEN` varchar(100) NOT NULL,
+  `grTextTH` text NOT NULL,
+  `grTextEN` text NOT NULL,
+  `grTextRulesTH` text NOT NULL DEFAULT '-',
+  `grTextRulesEN` text NOT NULL DEFAULT '-',
+  `grUrlIcon` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `gamerules`
+--
+
+INSERT INTO `gamerules` (`grId`, `grName`, `grKeyLine`, `grMultiply`, `grDelete`, `msID`, `grNote`, `grNameEN`, `grTextTH`, `grTextEN`, `grTextRulesTH`, `grTextRulesEN`, `grUrlIcon`) VALUES
+(1, 'เสือ', '1', 1.00, 0, 1, '', 'tiger', 'ชนะ ได้ 100', 'WIN receive 100', 'แทง เสือ 100 ได้ 100', 'Bet on Tiger 100, get 100.', 'https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=111111'),
+(2, 'มังกร', '2', 1.00, 0, 1, '', 'dragon', 'ชนะ ได้ 100', 'WIN receive 100', 'แทง มังกร 100 ได้ 100', 'Bet on Dragon 100 and get 100.', 'https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000'),
+(3, 'คู่', '3', 20.00, 0, 1, '-', 'dual', 'ชนะ ได้ 2000', 'WIN receive 2000', 'แทง คู่ 100 ได้ 2000', 'Bet on pair 100, get 2000', 'https://img.icons8.com/emoji/48/green-circle-emoji.png'),
+(4, 'เสมอ', '4', 20.00, 0, 1, '-', 'always', 'ชนะ ได้ 2000', 'WIN receive 2000', 'แทง เสมอ 100 ได้ 2000', 'Always bet 100, get 2,000', 'https://img.icons8.com/ios-filled/50/F4F206/filled-circle.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groupmemberlists`
+--
+
+CREATE TABLE `groupmemberlists` (
+  `listId` bigint(20) NOT NULL,
+  `userId` varchar(255) NOT NULL,
+  `groupId` varchar(255) NOT NULL,
+  `listDelete` tinyint(1) NOT NULL DEFAULT 0,
+  `datetime` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='รายชื่อลูกค้าที่อยู่ในกลุ่ม';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groups`
+--
+
+CREATE TABLE `groups` (
+  `groupId` varchar(255) NOT NULL,
+  `groupName` varchar(100) NOT NULL,
+  `msID` bigint(20) DEFAULT NULL COMMENT 'master game',
+  `datetime` timestamp NULL DEFAULT NULL,
+  `groupDelete` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `pictureUrl` text DEFAULT NULL,
+  `group_language` enum('th','en') DEFAULT 'th'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_lives`
+--
+
+CREATE TABLE `group_lives` (
+  `groupLive_ID` bigint(20) NOT NULL,
+  `groupId` varchar(255) NOT NULL,
+  `statusCloseLive` tinyint(1) NOT NULL DEFAULT 0,
+  `datetime` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` datetime DEFAULT NULL,
+  `glDelete` tinyint(1) NOT NULL DEFAULT 0,
+  `openCardSum` int(11) NOT NULL,
+  `msID` bigint(20) NOT NULL COMMENT 'เกม',
+  `GLI_Total_Quantity` decimal(65,2) DEFAULT 0.00,
+  `GLI_Total_Payment` decimal(65,2) DEFAULT 0.00,
+  `GLI_Remaining_Balance` decimal(65,2) DEFAULT 0.00,
+  `GLI_Confirm_Result` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_live_card_opens`
+--
+
+CREATE TABLE `group_live_card_opens` (
+  `glco_ID` bigint(20) NOT NULL,
+  `groupLive_ID` bigint(20) DEFAULT NULL COMMENT 'live ID',
+  `glco_count` int(11) DEFAULT NULL COMMENT 'รอบเล่น เปิด',
+  `grId` bigint(20) DEFAULT NULL COMMENT 'ผลแพ้ชนะ',
+  `msID` bigint(20) DEFAULT NULL COMMENT 'game',
+  `datetime` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `deleted_at` int(11) DEFAULT NULL,
+  `groupId` varchar(255) DEFAULT NULL,
+  `glcoDelete` tinyint(1) DEFAULT 0 COMMENT 'ลบเปิด',
+  `glcoCancel` tinyint(1) DEFAULT 0 COMMENT 'ยกเลิกเปิด',
+  `status_id` int(11) DEFAULT 5,
+  `GL_Total_Quantity` decimal(65,2) DEFAULT 0.00,
+  `GL_Total_Payment` decimal(65,2) DEFAULT 0.00,
+  `GL_Remaining_Balance` decimal(65,2) DEFAULT 0.00,
+  `GL_Confirm_Result` tinyint(1) NOT NULL DEFAULT 0,
+  `GL_Confirm_User` varchar(255) DEFAULT NULL,
+  `GL_Win_Total` int(11) DEFAULT 0 COMMENT 'คนที่ชนะ',
+  `GL_Loss_Total` int(11) DEFAULT 0 COMMENT 'คนที่แพ้',
+  `GL_Games_Played` int(11) DEFAULT 0 COMMENT 'ครั้งที่เล่นทั้งหมด'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `howtoplay_m`
+--
+
+CREATE TABLE `howtoplay_m` (
+  `htp_id` int(11) NOT NULL,
+  `msID` bigint(20) NOT NULL,
+  `htp_text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `LogID` int(11) NOT NULL,
+  `ac_id` int(11) DEFAULT NULL,
+  `Action` varchar(50) DEFAULT NULL,
+  `Timestamp` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logswebhook`
+--
+
+CREATE TABLE `logswebhook` (
+  `lwb_id` bigint(20) NOT NULL,
+  `lwb_destination` text NOT NULL,
+  `lwb_events` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`lwb_events`)),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_admins`
+--
+
+CREATE TABLE `log_admins` (
+  `log_id` bigint(20) NOT NULL,
+  `ac_code` varchar(255) DEFAULT NULL COMMENT 'ผู้กระทำ',
+  `status_id` int(11) DEFAULT NULL COMMENT 'กระทำ',
+  `action_note` text DEFAULT NULL,
+  `userId` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `userId` varchar(255) NOT NULL,
+  `displayName` varchar(255) DEFAULT NULL,
+  `userDelete` tinyint(1) NOT NULL DEFAULT 0,
+  `datetime` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `pictureUrl` text DEFAULT NULL,
+  `language` varchar(50) DEFAULT 'th',
+  `statusMessage` varchar(255) DEFAULT NULL,
+  `follow` tinyint(1) NOT NULL DEFAULT 1,
+  `user_remain` decimal(65,2) NOT NULL DEFAULT 0.00 COMMENT 'คงเหลือ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_statements`
+--
+
+CREATE TABLE `member_statements` (
+  `statement_ID` bigint(20) NOT NULL,
+  `userId` varchar(255) DEFAULT NULL,
+  `statement_IN` tinyint(1) DEFAULT 0 COMMENT 'สถานะเงินเข้า',
+  `statement_OUT` tinyint(1) DEFAULT 0 COMMENT 'สถานะเงินออก',
+  `status_id` int(11) DEFAULT NULL,
+  `statement_note` text DEFAULT NULL,
+  `datetime` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `statement_remain` decimal(65,2) DEFAULT 0.00 COMMENT 'คงเหลือ',
+  `money_incoming` decimal(65,2) DEFAULT 0.00,
+  `money_out` decimal(65,2) DEFAULT 0.00,
+  `ac_code` varchar(255) DEFAULT NULL,
+  `statement_slip` varchar(100) DEFAULT NULL,
+  `blit_id` bigint(20) DEFAULT NULL,
+  `gamb_ID` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `member_statements`
+--
+
+INSERT INTO `member_statements` (`statement_ID`, `userId`, `statement_IN`, `statement_OUT`, `status_id`, `statement_note`, `datetime`, `created_at`, `updated_at`, `deleted_at`, `statement_remain`, `money_incoming`, `money_out`, `ac_code`, `statement_slip`, `blit_id`, `gamb_ID`) VALUES
+(10, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, 3, '999', NULL, '2024-06-13 19:07:03', '2024-06-13 19:07:03', NULL, 9000.00, 9000.00, 0.00, 'AC-00001', '20240613/1718305623_8aea50537df8a1c856e1.png', 6, 0),
+(11, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-13 19:44:50', '2024-06-13 19:44:50', NULL, 6000.00, 0.00, 3000.00, 'AC-00001', '20240613/1718307889_9f5ac56ae1a9a04c26dc.png', 6, 0),
+(12, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-13 19:44:53', '2024-06-13 19:44:53', NULL, 3000.00, 0.00, 3000.00, 'AC-00001', '20240613/1718307893_7b00e7e06aa26915ff60.png', 6, 0),
+(13, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-14 20:23:41', '2024-06-14 20:23:41', NULL, 2800.00, 0.00, 200.00, 'AC-00001', '20240614/1718396621_c569026f5207fe84dfd1.png', 6, 0),
+(14, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, NULL, '', NULL, '2024-06-14 20:24:09', '2024-06-14 20:24:09', NULL, 2200.00, 0.00, 600.00, NULL, '20240614/1718396649_e164add57545d250868b.png', 6, 0),
+(15, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, NULL, '', NULL, '2024-06-14 20:27:10', '2024-06-14 20:27:10', NULL, 1900.00, 0.00, 300.00, NULL, '20240614/1718396830_524ed93fbda6757260d0.png', 6, 0),
+(16, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, NULL, '', NULL, '2024-06-14 20:28:45', '2024-06-14 20:28:45', NULL, 1801.00, 0.00, 99.00, NULL, '20240614/1718396924_485523bd860b98e962df.png', 6, 0),
+(17, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, NULL, 's', NULL, '2024-06-14 20:29:38', '2024-06-14 20:29:38', NULL, 10801.00, 9000.00, 0.00, 'AC-00001', '20240614/1718396977_0f4257beb25d892c04c3.png', 6, 0),
+(18, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-14 20:30:08', '2024-06-14 20:30:08', NULL, 10401.00, 0.00, 200.00, 'AC-00001', '20240614/1718397008_ef48b1f6232f41753309.png', 6, 0),
+(19, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, NULL, '', NULL, '2024-06-14 20:30:33', '2024-06-14 20:30:33', NULL, 10101.00, 0.00, 300.00, NULL, '20240614/1718397033_bbef9851e10123a469cc.png', 6, 0),
+(20, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-14 20:46:02', '2024-06-14 20:46:02', NULL, 10071.00, 0.00, 30.00, 'AC-00001', '20240614/1718397962_b2399912b505cd5299b2.png', 6, 0),
+(21, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-14 20:46:28', '2024-06-14 20:46:28', NULL, 10041.00, 0.00, 30.00, 'AC-00001', '20240614/1718397988_0c4860365d08382d11af.png', 6, 0),
+(22, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-14 20:46:49', '2024-06-14 20:46:49', NULL, 10011.00, 0.00, 30.00, 'AC-00001', '20240614/1718398009_d5080a1fc5ba37749e01.png', 6, 0),
+(23, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-15 04:36:20', '2024-06-15 04:36:20', NULL, 9711.00, 0.00, 300.00, 'AC-00001', '20240615/1718426180_3a0c5ed0451ce293f0cf.png', 6, 0),
+(24, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-15 04:36:36', '2024-06-15 04:36:36', NULL, 6211.00, 0.00, 3500.00, 'AC-00001', '20240615/1718426196_156548a03102a5dac9a5.png', 6, 0),
+(25, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-15 06:16:50', '2024-06-15 06:16:50', NULL, 5911.00, 0.00, 300.00, 'AC-00001', '20240615/1718432209_765dd8ab7fad04a8acde.png', 6, 0),
+(26, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-15 06:17:01', '2024-06-15 06:17:01', NULL, 4686.00, 0.00, 1225.00, 'AC-00001', NULL, 6, 0),
+(27, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-15 06:28:12', '2024-06-15 06:28:12', NULL, 4084.00, 0.00, 602.00, 'AC-00001', '20240615/1718432892_8d5f639208d9c61a120e.png', 6, 0),
+(28, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, 'ff', NULL, '2024-06-15 06:35:05', '2024-06-15 06:35:05', NULL, 3784.00, 0.00, 300.00, 'AC-00001', '20240615/1718433305_8e5b58d0dc184ba2364d.png', 6, 0),
+(29, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-15 06:35:18', '2024-06-15 06:35:18', NULL, 3759.00, 0.00, 25.00, 'AC-00001', '20240615/1718433318_01fdae21101893c8ddf2.png', 6, 0),
+(30, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '+', NULL, '2024-06-15 06:35:56', '2024-06-15 06:35:56', NULL, 3363.00, 0.00, 99.00, 'AC-00001', '20240615/1718433356_fbcd9d05c43a3d6c4eff.png', 6, 0),
+(31, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, 'f', NULL, '2024-06-15 06:40:13', '2024-06-15 06:40:13', NULL, 1863.00, 0.00, 300.00, 'AC-00001', NULL, 6, 0),
+(32, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-15 07:13:34', '2024-06-15 07:13:34', NULL, 663.00, 0.00, 30.00, 'AC-00001', NULL, 6, 0),
+(33, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, 3, '', NULL, '2024-06-15 07:13:46', '2024-06-15 07:13:46', NULL, 693.00, 30.00, 0.00, 'AC-00001', NULL, 6, 0),
+(34, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 2, '', NULL, '2024-06-15 07:14:04', '2024-06-15 07:14:04', NULL, 663.00, 0.00, 30.00, 'AC-00001', NULL, 6, 0),
+(35, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, NULL, '', NULL, '2024-06-15 07:14:17', '2024-06-15 07:14:17', NULL, 753.00, 90.00, 0.00, 'AC-00001', NULL, 6, 0),
+(36, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, NULL, '', NULL, '2024-06-15 07:24:31', '2024-06-15 07:24:31', NULL, 1353.00, 600.00, 0.00, 'AC-00001', '20240615/1718436270_3633e81f4f988556f87b.png', 6, 0),
+(37, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, NULL, 'dd', NULL, '2024-06-15 08:15:55', '2024-06-15 08:15:55', NULL, 1653.00, 300.00, 0.00, 'AC-00001', '20240615/1718439354_70b41cf0648e1193cde4.png', 6, 0),
+(38, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 3, '+', NULL, '2024-06-18 19:28:34', '2024-06-18 19:28:34', NULL, 300.00, 300.00, 0.00, 'AC-00001', NULL, 6, 0),
+(39, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:18:30', '2024-06-18 20:22:55', NULL, 295.00, 0.00, 0.00, NULL, NULL, 5, 0),
+(40, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:25:41', '2024-06-18 20:25:41', NULL, 200.00, 0.00, 100.00, 'bmU-85368698', NULL, NULL, 0),
+(41, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:26:15', '2024-06-18 20:26:15', NULL, 150.00, 0.00, 50.00, 'bmU-85368698', NULL, NULL, 0),
+(42, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:27:18', '2024-06-18 20:27:18', NULL, 100.00, 0.00, 50.00, 'bmU-85368698', NULL, NULL, 0),
+(43, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:28:19', '2024-06-18 20:28:19', NULL, 50.00, 0.00, 50.00, 'bmU-85368698', NULL, NULL, 0),
+(44, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:29:21', '2024-06-18 20:29:21', NULL, 0.00, 0.00, 50.00, 'bmU-85368698', NULL, NULL, 0),
+(45, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 3, '', NULL, '2024-06-18 20:39:24', '2024-06-18 20:39:24', NULL, 5000.00, 5000.00, 0.00, 'AC-00001', '20240618/1718743164_66a6639866c1efa9d815.png', 5, 0),
+(46, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:43:01', '2024-06-18 20:43:01', NULL, 4950.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(47, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:43:41', '2024-06-18 20:43:41', NULL, 4900.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(48, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:43:46', '2024-06-18 20:43:46', NULL, 4850.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(49, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:44:43', '2024-06-18 20:44:43', NULL, 4800.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(50, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 20:45:45', '2024-06-18 20:45:45', NULL, 4750.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(51, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:08:36', '2024-06-18 21:08:36', NULL, 4725.00, 0.00, 25.00, 'bmU-85368698', NULL, 12, 0),
+(52, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:10:58', '2024-06-18 21:10:58', NULL, 4625.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(53, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:16:00', '2024-06-18 21:16:00', NULL, 4600.00, 0.00, 25.00, 'bmU-85368698', NULL, 12, 0),
+(54, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:30:23', '2024-06-18 21:30:23', NULL, 4575.00, 0.00, 25.00, 'bmU-85368698', NULL, 12, 0),
+(55, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:31:09', '2024-06-18 21:31:09', NULL, 4550.00, 0.00, 25.00, 'bmU-85368698', NULL, 12, 0),
+(56, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:31:59', '2024-06-18 21:31:59', NULL, 4525.00, 0.00, 25.00, 'bmU-85368698', NULL, 12, 0),
+(57, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:33:07', '2024-06-18 21:33:07', NULL, 4515.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(58, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:34:21', '2024-06-18 21:34:21', NULL, 4505.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(59, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:35:12', '2024-06-18 21:35:12', NULL, 4495.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(60, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:35:23', '2024-06-18 21:35:23', NULL, 4485.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(61, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:36:05', '2024-06-18 21:36:05', NULL, 4475.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(62, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:36:14', '2024-06-18 21:36:14', NULL, 4465.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(63, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:37:06', '2024-06-18 21:37:06', NULL, 4455.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(64, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:38:33', '2024-06-18 21:38:33', NULL, 4445.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(65, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:38:46', '2024-06-18 21:38:46', NULL, 4435.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(66, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:48:05', '2024-06-18 21:48:05', NULL, 4425.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(67, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:49:07', '2024-06-18 21:49:07', NULL, 4415.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(68, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:49:52', '2024-06-18 21:49:52', NULL, 4405.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(69, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:50:09', '2024-06-18 21:50:09', NULL, 4395.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(70, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:50:28', '2024-06-18 21:50:28', NULL, 4385.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(71, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-18 21:51:30', '2024-06-18 21:51:30', NULL, 4375.00, 0.00, 10.00, 'bmU-85368698', NULL, 12, 0),
+(72, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:54:14', '2024-06-19 13:54:14', NULL, 4372.00, 0.00, 3.00, 'bmU-85368698', NULL, 12, 0),
+(73, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:54:55', '2024-06-19 13:54:55', NULL, 4367.00, 0.00, 5.00, 'bmU-85368698', NULL, 12, 0),
+(74, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:55:12', '2024-06-19 13:55:12', NULL, 4364.00, 0.00, 3.00, 'bmU-85368698', NULL, 12, 0),
+(75, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:57:29', '2024-06-19 13:57:29', NULL, 4361.00, 0.00, 3.00, 'bmU-85368698', NULL, 12, 0),
+(76, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:58:39', '2024-06-19 13:58:39', NULL, 4311.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(77, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:59:32', '2024-06-19 13:59:32', NULL, 4308.00, 0.00, 3.00, 'bmU-85368698', NULL, 12, 0),
+(78, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 13:59:41', '2024-06-19 13:59:41', NULL, 4258.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(79, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 16:14:39', '2024-06-19 16:14:39', NULL, 4228.00, 0.00, 30.00, 'bmU-85368698', NULL, 12, 0),
+(80, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 16:15:40', '2024-06-19 16:15:40', NULL, 4198.00, 0.00, 30.00, 'bmU-85368698', NULL, 12, 0),
+(81, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 16:16:42', '2024-06-19 16:16:42', NULL, 4168.00, 0.00, 30.00, 'bmU-85368698', NULL, 12, 0),
+(82, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 16:17:44', '2024-06-19 16:17:44', NULL, 4138.00, 0.00, 30.00, 'bmU-85368698', NULL, 12, 0),
+(83, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 16:43:29', '2024-06-19 16:43:29', NULL, 4078.00, 0.00, 60.00, 'bmU-85368698', NULL, 12, 0),
+(84, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 16:44:30', '2024-06-19 16:44:30', NULL, 4018.00, 0.00, 60.00, 'bmU-85368698', NULL, 12, 0),
+(85, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:03:59', '2024-06-19 17:03:59', NULL, 3968.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(86, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:05:24', '2024-06-19 17:05:24', NULL, 3868.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(87, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:06:02', '2024-06-19 17:06:02', NULL, 3818.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(88, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:06:27', '2024-06-19 17:06:27', NULL, 3718.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(89, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:07:04', '2024-06-19 17:07:04', NULL, 3668.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(90, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:07:29', '2024-06-19 17:07:29', NULL, 3568.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(91, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:08:06', '2024-06-19 17:08:06', NULL, 3518.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(92, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:08:30', '2024-06-19 17:08:30', NULL, 3418.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(93, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:09:08', '2024-06-19 17:09:08', NULL, 3368.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(94, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:09:32', '2024-06-19 17:09:32', NULL, 3268.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(95, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:10:10', '2024-06-19 17:10:10', NULL, 3218.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(96, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:10:34', '2024-06-19 17:10:34', NULL, 3118.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(97, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:11:12', '2024-06-19 17:11:12', NULL, 3068.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(98, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:11:36', '2024-06-19 17:11:36', NULL, 2968.00, 0.00, 100.00, 'bmU-85368698', NULL, 12, 0),
+(99, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:12:14', '2024-06-19 17:12:14', NULL, 2918.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(100, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:13:16', '2024-06-19 17:13:16', NULL, 2868.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(101, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:14:18', '2024-06-19 17:14:18', NULL, 2818.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(102, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:15:20', '2024-06-19 17:15:20', NULL, 2768.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(103, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:16:22', '2024-06-19 17:16:22', NULL, 2718.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(104, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:17:24', '2024-06-19 17:17:24', NULL, 2668.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(105, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:18:26', '2024-06-19 17:18:26', NULL, 2618.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(106, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-19 17:19:28', '2024-06-19 17:19:28', NULL, 2568.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(107, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 01:56:26', '2024-06-23 01:56:26', NULL, 2566.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(108, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 01:57:28', '2024-06-23 01:57:28', NULL, 2564.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(109, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 01:58:31', '2024-06-23 01:58:31', NULL, 2562.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(110, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 01:59:32', '2024-06-23 01:59:32', NULL, 2560.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(111, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:00:35', '2024-06-23 02:00:35', NULL, 2558.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(112, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:01:37', '2024-06-23 02:01:37', NULL, 2556.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(113, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:02:38', '2024-06-23 02:02:38', NULL, 2554.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(114, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:03:42', '2024-06-23 02:03:42', NULL, 2552.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(115, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:04:43', '2024-06-23 02:04:43', NULL, 2550.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(116, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:05:45', '2024-06-23 02:05:45', NULL, 2548.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(117, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:06:47', '2024-06-23 02:06:47', NULL, 2546.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(118, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:07:48', '2024-06-23 02:07:48', NULL, 2544.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(119, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:18:12', '2024-06-23 02:18:12', NULL, 2542.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(120, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:18:57', '2024-06-23 02:18:57', NULL, 2492.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(121, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:19:14', '2024-06-23 02:19:14', NULL, 2490.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(122, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:20:16', '2024-06-23 02:20:16', NULL, 2488.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(123, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:21:00', '2024-06-23 02:21:00', NULL, 2438.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(124, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:21:17', '2024-06-23 02:21:17', NULL, 2436.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(125, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:22:02', '2024-06-23 02:22:02', NULL, 2386.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(126, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:22:20', '2024-06-23 02:22:20', NULL, 2384.00, 0.00, 2.00, 'bmU-85368698', NULL, 12, 0),
+(127, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 02:23:05', '2024-06-23 02:23:05', NULL, 2334.00, 0.00, 50.00, 'bmU-85368698', NULL, 12, 0),
+(128, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:03:50', '2024-06-23 03:03:50', NULL, 1912.00, NULL, 3.00, 'bmU-85368698', NULL, 12, 0),
+(129, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:04:24', '2024-06-23 03:04:24', NULL, 1712.00, NULL, 200.00, 'bmU-85368698', NULL, 12, 0),
+(130, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:09:31', '2024-06-23 03:09:31', NULL, 1662.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(131, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:10:33', '2024-06-23 03:10:33', NULL, 1612.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(132, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:11:36', '2024-06-23 03:11:36', NULL, 1562.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(133, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:12:37', '2024-06-23 03:12:37', NULL, 1512.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(134, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:13:39', '2024-06-23 03:13:39', NULL, 1462.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(135, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 03:15:42', '2024-06-23 03:15:42', NULL, 1412.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(136, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:53:18', '2024-06-23 04:53:18', NULL, 1362.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(137, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:54:19', '2024-06-23 04:54:19', NULL, 1312.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(138, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:56:23', '2024-06-23 04:56:23', NULL, 1262.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(139, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:57:25', '2024-06-23 04:57:25', NULL, 1212.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(140, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:58:27', '2024-06-23 04:58:27', NULL, 1162.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(141, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:59:15', '2024-06-23 04:59:15', NULL, 1112.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(142, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 04:59:31', '2024-06-23 04:59:31', NULL, 1062.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(143, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:00:15', '2024-06-23 05:00:15', NULL, 1012.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(144, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:00:33', '2024-06-23 05:00:33', NULL, 962.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(145, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:01:18', '2024-06-23 05:01:18', NULL, 912.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(146, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:01:33', '2024-06-23 05:01:33', NULL, 862.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(147, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:02:19', '2024-06-23 05:02:19', NULL, 812.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 0),
+(148, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:03:51', '2024-06-23 05:03:51', NULL, 762.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 99),
+(149, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:04:54', '2024-06-23 05:04:54', NULL, 712.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 100),
+(150, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:05:27', '2024-06-23 05:05:27', NULL, 662.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 101),
+(151, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:05:54', '2024-06-23 05:05:54', NULL, 612.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 102),
+(152, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:06:28', '2024-06-23 05:06:28', NULL, 562.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 103),
+(153, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:07:30', '2024-06-23 05:07:30', NULL, 512.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 104),
+(154, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:07:58', '2024-06-23 05:07:58', NULL, 462.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 105),
+(155, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:08:33', '2024-06-23 05:08:33', NULL, 412.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 106),
+(156, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:17:04', '2024-06-23 05:17:04', NULL, 362.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 107),
+(157, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:23:24', '2024-06-23 05:23:24', NULL, 312.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 1),
+(158, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:23:37', '2024-06-23 05:23:37', NULL, 262.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 2),
+(159, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:24:26', '2024-06-23 05:24:26', NULL, 212.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 3),
+(160, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:24:39', '2024-06-23 05:24:39', NULL, 162.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 4),
+(161, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:25:28', '2024-06-23 05:25:28', NULL, 112.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 5),
+(162, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:25:41', '2024-06-23 05:25:41', NULL, 62.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 6),
+(163, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 05:26:30', '2024-06-23 05:26:30', NULL, 12.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 7),
+(164, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 3, '', NULL, '2024-06-23 08:09:45', '2024-06-23 08:09:45', NULL, 9012.00, 9000.00, 0.00, 'AC-00001', NULL, 10, NULL),
+(165, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 08:11:47', '2024-06-23 08:11:47', NULL, 8962.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 8),
+(166, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 08:12:49', '2024-06-23 08:12:49', NULL, 8912.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 9),
+(167, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 08:12:57', '2024-06-23 08:12:57', NULL, 8861.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 10),
+(168, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 08:13:51', '2024-06-23 08:13:51', NULL, 8811.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 11),
+(169, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 08:13:58', '2024-06-23 08:13:58', NULL, 8760.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 12),
+(170, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 08:57:34', '2024-06-23 08:57:34', NULL, 8710.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 13),
+(171, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 09:02:13', '2024-06-23 09:02:13', NULL, 8650.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 14),
+(172, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 09:03:15', '2024-06-23 09:03:15', NULL, 8590.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 15),
+(173, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 09:10:12', '2024-06-23 09:10:12', NULL, 8526.00, NULL, 64.00, 'bmU-85368698', NULL, 12, 16),
+(174, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 09:11:16', '2024-06-23 09:11:16', NULL, 8461.00, NULL, 65.00, 'bmU-85368698', NULL, 12, 17),
+(175, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 09:14:21', '2024-06-23 09:14:21', NULL, 8371.00, NULL, 90.00, 'bmU-85368698', NULL, 12, 18),
+(176, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 13:56:03', '2024-06-23 13:56:03', NULL, 8320.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 1),
+(177, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 18:17:01', '2024-06-23 18:17:01', NULL, 8269.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 2),
+(178, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 18:17:48', '2024-06-23 18:17:48', NULL, 8218.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 3),
+(179, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 18:21:26', '2024-06-23 18:21:26', NULL, 8167.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 1),
+(180, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 18:25:39', '2024-06-23 18:25:39', NULL, 8112.00, NULL, 55.00, 'bmU-85368698', NULL, 12, 2),
+(181, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 18:45:05', '2024-06-23 18:45:05', NULL, 8061.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 3),
+(182, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:08:00', '2024-06-23 19:08:00', NULL, 8010.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 4),
+(183, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:11:39', '2024-06-23 19:11:39', NULL, 7959.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 5),
+(184, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:11:43', '2024-06-23 19:11:43', NULL, 7874.00, NULL, 85.00, 'bmU-85368698', NULL, 12, 6),
+(185, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:11:47', '2024-06-23 19:11:47', NULL, 7792.00, NULL, 82.00, 'bmU-85368698', NULL, 12, 7),
+(186, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:11:53', '2024-06-23 19:11:53', NULL, 7712.00, NULL, 80.00, 'bmU-85368698', NULL, 12, 8),
+(187, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:11:57', '2024-06-23 19:11:57', NULL, 7652.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 9),
+(188, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:22:47', '2024-06-23 19:22:47', NULL, 7602.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 10),
+(189, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:22:56', '2024-06-23 19:22:56', NULL, 7522.00, NULL, 80.00, 'bmU-85368698', NULL, 12, 11),
+(190, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:22:59', '2024-06-23 19:22:59', NULL, 7462.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 12),
+(191, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-23 19:24:18', '2024-06-23 19:24:18', NULL, 7622.00, 160.00, NULL, 'bmU-85368698', NULL, 12, 11),
+(192, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:25:14', '2024-06-23 19:25:14', NULL, 7402.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 13),
+(193, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:25:22', '2024-06-23 19:25:22', NULL, 7302.00, NULL, 100.00, 'bmU-85368698', NULL, 12, 14),
+(194, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-23 19:25:28', '2024-06-23 19:25:28', NULL, 8562.00, 1260.00, NULL, 'bmU-85368698', NULL, 12, 13),
+(195, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-23 19:25:28', '2024-06-23 19:25:28', NULL, 9402.00, 2100.00, NULL, 'bmU-85368698', NULL, 12, 14),
+(196, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:32:58', '2024-06-23 19:32:58', NULL, 7242.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 15),
+(197, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:34:12', '2024-06-23 19:34:12', NULL, 7192.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 16),
+(198, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:34:39', '2024-06-23 19:34:39', NULL, 7142.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 17),
+(199, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:34:58', '2024-06-23 19:34:58', NULL, 7092.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 18),
+(200, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:35:30', '2024-06-23 19:35:30', NULL, 7042.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 19),
+(201, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:36:26', '2024-06-23 19:36:26', NULL, 6992.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 20),
+(202, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:37:35', '2024-06-23 19:37:35', NULL, 6942.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 21),
+(203, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:38:00', '2024-06-23 19:38:00', NULL, 6892.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 22),
+(204, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:39:33', '2024-06-23 19:39:33', NULL, 6842.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 23),
+(205, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:40:04', '2024-06-23 19:40:04', NULL, 6792.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 24),
+(206, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:41:28', '2024-06-23 19:41:28', NULL, 6742.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 25),
+(207, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:41:51', '2024-06-23 19:41:51', NULL, 6692.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 26),
+(208, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:48:22', '2024-06-23 19:48:22', NULL, 6642.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 27),
+(209, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:49:36', '2024-06-23 19:49:36', NULL, 6592.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 28),
+(210, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-23 19:53:02', '2024-06-23 19:53:02', NULL, 6542.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 29),
+(211, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-24 11:11:44', '2024-06-24 11:11:44', NULL, 6662.00, 120.00, NULL, 'bmU-85368698', NULL, 12, 15),
+(212, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-24 11:11:44', '2024-06-24 11:11:44', NULL, 6642.00, 100.00, NULL, 'bmU-85368698', NULL, 12, 16),
+(213, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-24 11:11:44', '2024-06-24 11:11:44', NULL, 6642.00, 100.00, NULL, 'bmU-85368698', NULL, 12, 17),
+(214, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-24 11:11:44', '2024-06-24 11:11:44', NULL, 6642.00, 100.00, NULL, 'bmU-85368698', NULL, 12, 24),
+(215, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 11:13:06', '2024-06-24 11:13:06', NULL, 6492.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 30),
+(216, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:24:31', '2024-06-24 14:24:31', NULL, 6441.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 31),
+(217, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:26:57', '2024-06-24 14:26:57', NULL, 6390.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 32),
+(218, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:27:53', '2024-06-24 14:27:53', NULL, 6340.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 33),
+(219, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:30:43', '2024-06-24 14:30:43', NULL, 6289.00, NULL, 51.00, 'bmU-85368698', NULL, 12, 34),
+(220, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:31:11', '2024-06-24 14:31:11', NULL, 6234.00, NULL, 55.00, 'bmU-85368698', NULL, 12, 35),
+(221, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:31:23', '2024-06-24 14:31:23', NULL, 6180.00, NULL, 54.00, 'bmU-85368698', NULL, 12, 36),
+(222, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 14:31:58', '2024-06-24 14:31:58', NULL, 6120.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 37),
+(223, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-24 14:46:10', '2024-06-24 14:46:10', NULL, 6230.00, 110.00, NULL, 'bmU-85368698', NULL, 12, 35),
+(224, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:23:37', '2024-06-24 15:23:37', NULL, 6060.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 38),
+(225, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:25:39', '2024-06-24 15:25:39', NULL, 6000.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 39),
+(226, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:42:58', '2024-06-24 15:42:58', NULL, 5950.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 40),
+(227, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:43:34', '2024-06-24 15:43:34', NULL, 5900.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 41),
+(228, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:46:34', '2024-06-24 15:46:34', NULL, 5840.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 42),
+(229, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:47:16', '2024-06-24 15:47:16', NULL, 5780.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 43),
+(230, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:48:18', '2024-06-24 15:48:18', NULL, 5720.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 44),
+(231, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:49:33', '2024-06-24 15:49:33', NULL, 5670.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 45),
+(232, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:50:31', '2024-06-24 15:50:31', NULL, 5610.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 46),
+(233, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:52:58', '2024-06-24 15:52:58', NULL, 5560.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 47),
+(234, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:53:05', '2024-06-24 15:53:05', NULL, 5510.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 48),
+(235, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:54:52', '2024-06-24 15:54:52', NULL, 5460.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 49),
+(236, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:58:17', '2024-06-24 15:58:17', NULL, 5410.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 50),
+(237, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-24 15:59:40', '2024-06-24 15:59:40', NULL, 5350.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 51),
+(238, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 12:02:24', '2024-06-25 12:02:24', NULL, 5300.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 52),
+(239, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 12:02:26', '2024-06-25 12:02:26', NULL, 5250.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 53),
+(240, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 12:04:29', '2024-06-25 12:04:29', NULL, 5170.00, NULL, 80.00, 'bmU-85368698', NULL, 12, 54),
+(241, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-25 12:05:57', '2024-06-25 12:05:57', NULL, 5270.00, 100.00, NULL, 'bmU-85368698', NULL, 12, 53),
+(242, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 15:24:44', '2024-06-25 15:24:44', NULL, 5120.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 55),
+(243, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 15:27:31', '2024-06-25 15:27:31', NULL, 5060.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 56),
+(244, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 15:27:41', '2024-06-25 15:27:41', NULL, 4980.00, NULL, 80.00, 'bmU-85368698', NULL, 12, 57),
+(245, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-25 15:27:56', '2024-06-25 15:27:56', NULL, 5140.00, 160.00, NULL, 'bmU-85368698', NULL, 12, 57),
+(246, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 16:49:02', '2024-06-25 16:49:02', NULL, 4920.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 58),
+(247, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 16:49:10', '2024-06-25 16:49:10', NULL, 4830.00, NULL, 90.00, 'bmU-85368698', NULL, 12, 59),
+(248, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '', NULL, '2024-06-25 17:29:28', '2024-06-25 17:29:28', NULL, 6720.00, 1890.00, NULL, 'bmU-85368698', NULL, 12, 59),
+(249, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 17:50:27', '2024-06-25 17:50:27', NULL, 4780.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 60),
+(250, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '-', NULL, '2024-06-25 17:50:43', '2024-06-25 17:50:43', NULL, 4880.00, 100.00, NULL, 'bmU-85368698', NULL, 12, 60),
+(251, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 17:58:53', '2024-06-25 17:58:53', NULL, 4690.00, NULL, 90.00, 'bmU-85368698', NULL, 12, 61),
+(252, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:06:28', '2024-06-25 18:06:28', NULL, 4090.00, NULL, 600.00, 'bmU-85368698', NULL, 12, 62),
+(253, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:36:44', '2024-06-25 18:36:44', NULL, 4030.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 63),
+(254, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:36:58', '2024-06-25 18:36:58', NULL, 3930.00, NULL, 100.00, 'bmU-85368698', NULL, 12, 64),
+(255, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '-', NULL, '2024-06-25 18:37:11', '2024-06-25 18:37:11', NULL, 4050.00, 120.00, NULL, 'bmU-85368698', NULL, 12, 63),
+(256, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:39:03', '2024-06-25 18:39:03', NULL, 3730.00, NULL, 200.00, 'bmU-85368698', NULL, 12, 65),
+(257, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:39:13', '2024-06-25 18:39:13', NULL, 3670.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 66),
+(258, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:44:09', '2024-06-25 18:44:09', NULL, 3610.00, NULL, 60.00, 'bmU-85368698', NULL, 12, 67),
+(259, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:44:12', '2024-06-25 18:44:12', NULL, 3560.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 68),
+(260, 'U1c6ceaf63d3c2a16aa16da11608793d6', 0, 1, 9, '', NULL, '2024-06-25 18:44:15', '2024-06-25 18:44:15', NULL, 3510.00, NULL, 50.00, 'bmU-85368698', NULL, 12, 69),
+(261, 'U1c6ceaf63d3c2a16aa16da11608793d6', 1, 0, 10, '-', NULL, '2024-06-25 18:44:24', '2024-06-25 18:44:24', NULL, 3610.00, 100.00, NULL, 'bmU-85368698', NULL, 12, 68),
+(262, 'U505c9f7b163efd93fbd7e78bc3af5116', 0, 1, 4, '', NULL, '2024-06-26 20:01:17', '2024-06-26 20:01:17', NULL, 1633.00, 0.00, 20.00, 'AC-00001', NULL, 6, NULL),
+(263, 'U505c9f7b163efd93fbd7e78bc3af5116', 1, 0, 3, '', NULL, '2024-06-26 20:01:29', '2024-06-26 20:01:29', NULL, 1683.00, 50.00, 0.00, 'AC-00001', NULL, 6, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `PermissionID` int(11) NOT NULL,
+  `PermissionName` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`PermissionID`, `PermissionName`) VALUES
+(1, 'Add'),
+(2, 'Edit'),
+(3, 'Delete'),
+(4, 'show');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rolepermissions`
+--
+
+CREATE TABLE `rolepermissions` (
+  `RoleID` int(11) NOT NULL,
+  `PermissionID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rolepermissions`
+--
+
+INSERT INTO `rolepermissions` (`RoleID`, `PermissionID`) VALUES
+(1, 1),
+(2, 1),
+(1, 2),
+(2, 2),
+(3, 2),
+(1, 3),
+(2, 3),
+(1, 4),
+(2, 4),
+(3, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `RoleID` int(11) NOT NULL,
+  `RoleName` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`RoleID`, `RoleName`) VALUES
+(1, 'Admin'),
+(2, 'Manager'),
+(3, 'Staff'),
+(4, 'Super Admin'),
+(5, 'Staff Room'),
+(6, 'Staff Member'),
+(7, 'Staff Bank');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `signinlogs`
+--
+
+CREATE TABLE `signinlogs` (
+  `sig_id` bigint(255) UNSIGNED NOT NULL,
+  `sig_type` varchar(255) DEFAULT NULL,
+  `sig_text` text DEFAULT NULL,
+  `sig_ip` text DEFAULT NULL,
+  `sig_comment` text DEFAULT NULL,
+  `datetime` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `status_id` int(11) NOT NULL,
+  `status_name` varchar(100) DEFAULT NULL,
+  `status_note` text DEFAULT NULL,
+  `status_type` enum('bank','user','admin','live') NOT NULL,
+  `status_nameEN` varchar(100) DEFAULT NULL,
+  `status_class` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`status_id`, `status_name`, `status_note`, `status_type`, `status_nameEN`, `status_class`) VALUES
+(1, 'เงินเข้า', NULL, 'bank', 'Incoming money', 'text-success'),
+(2, 'เงินออก', NULL, 'bank', 'Money out', 'text-danger'),
+(3, 'เงินเข้า', NULL, 'user', 'Incoming money', 'text-success'),
+(4, 'เงินออก', NULL, 'user', 'Money out', 'text-danger'),
+(5, 'รอเปิด', NULL, 'live', 'รอเปิด', 'text-info'),
+(6, 'ปิด Live', NULL, 'live', 'ปิด Live', 'text-danger'),
+(7, 'กำลังเล่น', NULL, 'live', 'กำลังเล่น', 'text-primary'),
+(8, 'เปิดแล้ว', NULL, 'live', 'เปิดแล้ว', 'text-success'),
+(9, 'ลงเดิมพัน', 'ลงเดิมพัน', 'live', 'ลงเดิมพัน', 'text-danger'),
+(10, 'ชนะเดิมพัน', 'ชนะเดิมพัน', 'live', 'ชนะเดิมพัน', 'text-success');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `accounts_admin`
+--
+ALTER TABLE `accounts_admin`
+  ADD PRIMARY KEY (`ac_id`),
+  ADD UNIQUE KEY `ac_code` (`ac_code`),
+  ADD UNIQUE KEY `ac_email` (`ac_email`),
+  ADD KEY `roles999` (`RoleID`);
+
+--
+-- Indexes for table `banklists`
+--
+ALTER TABLE `banklists`
+  ADD PRIMARY KEY (`blit_id`),
+  ADD UNIQUE KEY `blit_number` (`blit_number`),
+  ADD KEY `banklists1` (`bank_id`),
+  ADD KEY `banklists2` (`ac_code`);
+
+--
+-- Indexes for table `banks`
+--
+ALTER TABLE `banks`
+  ADD PRIMARY KEY (`bank_id`);
+
+--
+-- Indexes for table `bank_statements`
+--
+ALTER TABLE `bank_statements`
+  ADD PRIMARY KEY (`bstate_id`),
+  ADD KEY `bank_statements1` (`bank_id`),
+  ADD KEY `bank_statements2` (`blit_id`),
+  ADD KEY `bank_statements3` (`userId`),
+  ADD KEY `bank_statements4` (`status_id`),
+  ADD KEY `bank_statements5` (`ac_code`);
+
+--
+-- Indexes for table `gambling_histories`
+--
+ALTER TABLE `gambling_histories`
+  ADD PRIMARY KEY (`gamb_ID`),
+  ADD KEY `gambli1` (`glco_ID`),
+  ADD KEY `gambli2` (`grId`),
+  ADD KEY `gambli3` (`groupId`),
+  ADD KEY `gambli4` (`groupLive_ID`),
+  ADD KEY `gambli5` (`msID`),
+  ADD KEY `gambli6` (`userId`);
+
+--
+-- Indexes for table `gamemasters`
+--
+ALTER TABLE `gamemasters`
+  ADD PRIMARY KEY (`msID`);
+
+--
+-- Indexes for table `gamerules`
+--
+ALTER TABLE `gamerules`
+  ADD PRIMARY KEY (`grId`),
+  ADD KEY `mg_gr_1` (`msID`);
+
+--
+-- Indexes for table `groupmemberlists`
+--
+ALTER TABLE `groupmemberlists`
+  ADD PRIMARY KEY (`listId`);
+
+--
+-- Indexes for table `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`groupId`),
+  ADD UNIQUE KEY `groupId` (`groupId`),
+  ADD KEY `msIDTo1` (`msID`);
+
+--
+-- Indexes for table `group_lives`
+--
+ALTER TABLE `group_lives`
+  ADD PRIMARY KEY (`groupLive_ID`),
+  ADD KEY `groupIDTOGL` (`groupId`),
+  ADD KEY `msGame_Live` (`msID`);
+
+--
+-- Indexes for table `group_live_card_opens`
+--
+ALTER TABLE `group_live_card_opens`
+  ADD PRIMARY KEY (`glco_ID`),
+  ADD KEY `glco_1` (`grId`),
+  ADD KEY `glco_2` (`groupId`),
+  ADD KEY `glco_3` (`groupLive_ID`),
+  ADD KEY `glco_4` (`msID`),
+  ADD KEY `glco_5` (`status_id`);
+
+--
+-- Indexes for table `howtoplay_m`
+--
+ALTER TABLE `howtoplay_m`
+  ADD PRIMARY KEY (`htp_id`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`LogID`);
+
+--
+-- Indexes for table `logswebhook`
+--
+ALTER TABLE `logswebhook`
+  ADD PRIMARY KEY (`lwb_id`);
+
+--
+-- Indexes for table `log_admins`
+--
+ALTER TABLE `log_admins`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `log_admins` (`status_id`);
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
+  ADD PRIMARY KEY (`userId`),
+  ADD UNIQUE KEY `userId` (`userId`);
+
+--
+-- Indexes for table `member_statements`
+--
+ALTER TABLE `member_statements`
+  ADD PRIMARY KEY (`statement_ID`),
+  ADD KEY `member_statements1` (`userId`),
+  ADD KEY `member_statements2` (`status_id`),
+  ADD KEY `member_statements3` (`blit_id`),
+  ADD KEY `member_statements4` (`ac_code`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`PermissionID`);
+
+--
+-- Indexes for table `rolepermissions`
+--
+ALTER TABLE `rolepermissions`
+  ADD PRIMARY KEY (`RoleID`,`PermissionID`),
+  ADD KEY `PermissionID` (`PermissionID`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`RoleID`);
+
+--
+-- Indexes for table `signinlogs`
+--
+ALTER TABLE `signinlogs`
+  ADD PRIMARY KEY (`sig_id`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`status_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `accounts_admin`
+--
+ALTER TABLE `accounts_admin`
+  MODIFY `ac_id` bigint(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `banklists`
+--
+ALTER TABLE `banklists`
+  MODIFY `blit_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `banks`
+--
+ALTER TABLE `banks`
+  MODIFY `bank_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `bank_statements`
+--
+ALTER TABLE `bank_statements`
+  MODIFY `bstate_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gambling_histories`
+--
+ALTER TABLE `gambling_histories`
+  MODIFY `gamb_ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gamemasters`
+--
+ALTER TABLE `gamemasters`
+  MODIFY `msID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `gamerules`
+--
+ALTER TABLE `gamerules`
+  MODIFY `grId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `groupmemberlists`
+--
+ALTER TABLE `groupmemberlists`
+  MODIFY `listId` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `group_lives`
+--
+ALTER TABLE `group_lives`
+  MODIFY `groupLive_ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `group_live_card_opens`
+--
+ALTER TABLE `group_live_card_opens`
+  MODIFY `glco_ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `howtoplay_m`
+--
+ALTER TABLE `howtoplay_m`
+  MODIFY `htp_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `logswebhook`
+--
+ALTER TABLE `logswebhook`
+  MODIFY `lwb_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `log_admins`
+--
+ALTER TABLE `log_admins`
+  MODIFY `log_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `member_statements`
+--
+ALTER TABLE `member_statements`
+  MODIFY `statement_ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=264;
+
+--
+-- AUTO_INCREMENT for table `signinlogs`
+--
+ALTER TABLE `signinlogs`
+  MODIFY `sig_id` bigint(255) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `accounts_admin`
+--
+ALTER TABLE `accounts_admin`
+  ADD CONSTRAINT `roles999` FOREIGN KEY (`RoleID`) REFERENCES `roles` (`RoleID`);
+
+--
+-- Constraints for table `banklists`
+--
+ALTER TABLE `banklists`
+  ADD CONSTRAINT `banklists1` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`bank_id`),
+  ADD CONSTRAINT `banklists2` FOREIGN KEY (`ac_code`) REFERENCES `accounts_admin` (`ac_code`);
+
+--
+-- Constraints for table `bank_statements`
+--
+ALTER TABLE `bank_statements`
+  ADD CONSTRAINT `bank_statements1` FOREIGN KEY (`bank_id`) REFERENCES `banks` (`bank_id`),
+  ADD CONSTRAINT `bank_statements2` FOREIGN KEY (`blit_id`) REFERENCES `banklists` (`blit_id`),
+  ADD CONSTRAINT `bank_statements3` FOREIGN KEY (`userId`) REFERENCES `members` (`userId`),
+  ADD CONSTRAINT `bank_statements4` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`),
+  ADD CONSTRAINT `bank_statements5` FOREIGN KEY (`ac_code`) REFERENCES `accounts_admin` (`ac_code`);
+
+--
+-- Constraints for table `gambling_histories`
+--
+ALTER TABLE `gambling_histories`
+  ADD CONSTRAINT `gambli1` FOREIGN KEY (`glco_ID`) REFERENCES `group_live_card_opens` (`glco_ID`),
+  ADD CONSTRAINT `gambli2` FOREIGN KEY (`grId`) REFERENCES `gamerules` (`grId`),
+  ADD CONSTRAINT `gambli3` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`),
+  ADD CONSTRAINT `gambli4` FOREIGN KEY (`groupLive_ID`) REFERENCES `group_lives` (`groupLive_ID`),
+  ADD CONSTRAINT `gambli5` FOREIGN KEY (`msID`) REFERENCES `gamemasters` (`msID`),
+  ADD CONSTRAINT `gambli6` FOREIGN KEY (`userId`) REFERENCES `members` (`userId`);
+
+--
+-- Constraints for table `gamerules`
+--
+ALTER TABLE `gamerules`
+  ADD CONSTRAINT `mg_gr_1` FOREIGN KEY (`msID`) REFERENCES `gamemasters` (`msID`);
+
+--
+-- Constraints for table `groups`
+--
+ALTER TABLE `groups`
+  ADD CONSTRAINT `msIDTo1` FOREIGN KEY (`msID`) REFERENCES `gamemasters` (`msID`);
+
+--
+-- Constraints for table `group_lives`
+--
+ALTER TABLE `group_lives`
+  ADD CONSTRAINT `groupIDTOGL` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`),
+  ADD CONSTRAINT `msGame_Live` FOREIGN KEY (`msID`) REFERENCES `gamemasters` (`msID`);
+
+--
+-- Constraints for table `group_live_card_opens`
+--
+ALTER TABLE `group_live_card_opens`
+  ADD CONSTRAINT `glco_1` FOREIGN KEY (`grId`) REFERENCES `gamerules` (`grId`),
+  ADD CONSTRAINT `glco_2` FOREIGN KEY (`groupId`) REFERENCES `groups` (`groupId`),
+  ADD CONSTRAINT `glco_3` FOREIGN KEY (`groupLive_ID`) REFERENCES `group_lives` (`groupLive_ID`),
+  ADD CONSTRAINT `glco_4` FOREIGN KEY (`msID`) REFERENCES `gamemasters` (`msID`),
+  ADD CONSTRAINT `glco_5` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`);
+
+--
+-- Constraints for table `log_admins`
+--
+ALTER TABLE `log_admins`
+  ADD CONSTRAINT `log_admins` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`);
+
+--
+-- Constraints for table `member_statements`
+--
+ALTER TABLE `member_statements`
+  ADD CONSTRAINT `member_statements1` FOREIGN KEY (`userId`) REFERENCES `members` (`userId`),
+  ADD CONSTRAINT `member_statements2` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`),
+  ADD CONSTRAINT `member_statements3` FOREIGN KEY (`blit_id`) REFERENCES `banklists` (`blit_id`),
+  ADD CONSTRAINT `member_statements4` FOREIGN KEY (`ac_code`) REFERENCES `accounts_admin` (`ac_code`);
+
+--
+-- Constraints for table `rolepermissions`
+--
+ALTER TABLE `rolepermissions`
+  ADD CONSTRAINT `rolepermissions_ibfk_1` FOREIGN KEY (`RoleID`) REFERENCES `roles` (`RoleID`),
+  ADD CONSTRAINT `rolepermissions_ibfk_2` FOREIGN KEY (`PermissionID`) REFERENCES `permissions` (`PermissionID`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

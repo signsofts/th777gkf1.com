@@ -1,0 +1,35 @@
+# ไฟล์สภาพแวดล้อม (Environment files)
+/.env
+
+
+# ไฟล์แคชและล็อก
+/writable/cache/*
+/writable/logs/*
+/writable/session/*
+/writable/uploads/*
+
+# ป้องกันการเพิ่มไฟล์ใน writable ที่ไม่ต้องการ
+/writable/*/*
+!/writable/.gitkeep
+
+# ไฟล์ที่สร้างโดย Composer
+/vendor/
+
+# ไฟล์ที่สร้างโดย CI4 หรือเครื่องมืออื่น ๆ
+/public/index.php.bak
+/public/.htaccess.bak
+
+# ไฟล์ชั่วคราวของ IDE หรือเครื่องมือพัฒนา
+*.log
+*.bak
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
+nbproject/
+
+# ไฟล์ทดสอบหรือข้อมูลส่วนตัว
+/tests/_output/*
+/tests/coverage/*
+

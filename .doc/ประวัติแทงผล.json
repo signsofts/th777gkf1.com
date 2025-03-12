@@ -1,0 +1,201 @@
+{
+	"type": "bubble",
+	"size": "giga",
+	"body": {
+		"type": "box",
+		"layout": "vertical",
+		"contents": [
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "none",
+				"contents": [
+					{
+						"type": "text",
+						"text": "[ID:00] NAME",
+						"weight": "bold",
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "-",
+						"color": "#aaaaaa",
+						"size": "xs",
+						"align": "end"
+					}
+				]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "none",
+				"contents": [
+					{
+						"type": "text",
+						"text": "ยอดเครดิต",
+						"size": "sm",
+						"color": "#aaaaaa",
+						"flex": 0
+					},
+					{
+						"type": "text",
+						"text": "999999 บาท",
+						"size": "sm",
+						"align": "end"
+					}
+				]
+			},
+			{
+				"type": "separator",
+				"margin": "none"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "lg",
+				"contents": [
+					{
+						"type": "text",
+						"text": "-",
+						"weight": "bold",
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "01/01/24",
+						"size": "xs",
+						"align": "end"
+					}
+				]
+			},
+			{
+				"type": "separator",
+				"margin": "sm"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [
+					{
+						"type": "text",
+						"text": "เปิดที่",
+						"wrap": true,
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "เดิมพัน",
+						"wrap": true,
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "แทง",
+						"align": "end",
+						"size": "sm"
+					}
+				],
+				"width": "100%",
+				"justifyContent": "space-between",
+				"backgroundColor": "#F5F5F5",
+				"cornerRadius": "sm"
+			},
+			{
+				"type": "separator",
+				"margin": "none"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [
+					{
+						"type": "text",
+						"text": "#1",
+						"wrap": true,
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "คู่",
+						"wrap": true,
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "+999 บาท",
+						"align": "end",
+						"size": "sm"
+					}
+				],
+				"width": "100%",
+				"justifyContent": "space-between"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [
+					{
+						"type": "text",
+						"text": "#1",
+						"wrap": true,
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "คี่",
+						"wrap": true,
+						"size": "sm"
+					},
+					{
+						"type": "text",
+						"text": "+999 บาท",
+						"align": "end",
+						"size": "sm"
+					}
+				],
+				"width": "100%",
+				"justifyContent": "space-between"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [
+					{
+						"type": "text",
+						"text": "#2",
+						"wrap": true,
+						"size": "sm",
+						"flex": 1
+					},
+					{
+						"type": "text",
+						"text": "คี่",
+						"wrap": true,
+						"size": "sm",
+						"align": "start"
+					},
+					{
+						"type": "text",
+						"text": "+999 บาท",
+						"align": "end",
+						"size": "sm"
+					}
+				],
+				"width": "100%",
+				"justifyContent": "space-between"
+			},
+			{
+				"type": "separator",
+				"margin": "sm"
+			}
+		]
+	},
+	"styles": {
+		"body": {
+			"separator": false
+		},
+		"footer": {
+			"separator": true
+		}
+	}
+}

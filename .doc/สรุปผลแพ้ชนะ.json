@@ -1,0 +1,948 @@
+{
+	"type": "bubble",
+	"size": "giga",
+	"body": {
+	  "type": "box",
+	  "layout": "vertical",
+	  "contents": [
+		{
+		  "type": "box",
+		  "layout": "horizontal",
+		  "contents": [
+			{
+			  "type": "text",
+			  "text": "สรุปผลแพ้-ชนะ",
+			  "weight": "bold",
+			  "size": "xl"
+			},
+			{
+			  "type": "text",
+			  "text": "#999",
+			  "weight": "bold",
+			  "size": "xl",
+			  "align": "end"
+			}
+		  ]
+		},
+		{
+		  "type": "box",
+		  "layout": "baseline",
+		  "margin": "xl",
+		  "contents": [
+			{
+			  "type": "icon",
+			  "size": "lg",
+			  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+			},
+			{
+			  "type": "text",
+			  "text": "คู่ชนะ",
+			  "size": "lg",
+			  "color": "#999999",
+			  "margin": "none",
+			  "flex": 0
+			},
+			{
+			  "type": "icon",
+			  "size": "lg",
+			  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+			},
+			{
+			  "type": "text",
+			  "text": "คีชนะ",
+			  "size": "lg",
+			  "color": "#999999",
+			  "margin": "none",
+			  "flex": 0
+			}
+		  ],
+		  "justifyContent": "center"
+		},
+		{
+		  "type": "separator",
+		  "margin": "lg"
+		},
+		{
+		  "type": "box",
+		  "layout": "vertical",
+		  "contents": [
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			},
+			{
+			  "type": "box",
+			  "layout": "baseline",
+			  "margin": "none",
+			  "contents": [
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=SCY7gqvxY0DC&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				},
+				{
+				  "type": "icon",
+				  "size": "lg",
+				  "url": "https://img.icons8.com/?size=100&id=amr4dGCohyBU&format=png&color=000000"
+				}
+			  ]
+			}
+		  ],
+		  "width": "100%",
+		  "margin": "xl"
+		}
+	  ]
+	}
+  }
