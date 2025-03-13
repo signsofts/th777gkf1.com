@@ -1,0 +1,81 @@
+{
+    "type": "bubble",
+    "hero": {
+        "type": "image",
+        "url": "https://www.checkraka.com/uploaded/knowledge/article/1743056/covid_scb1.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:7",
+        "position": "relative",
+        "gravity": "top"
+    },
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "999-255-999-999",
+                "weight": "bold",
+                "size": "xl"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
+                "contents": [
+                    {
+                        "type": "box",
+                        "layout": "baseline",
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "ธนาคาร",
+                                "color": "#aaaaaa",
+                                "size": "sm",
+                                "wrap": true
+                            },
+                            {
+                                "type": "text",
+                                "text": "",
+                                "wrap": true,
+                                "color": "#666666",
+                                "size": "sm",
+                                "align": "start",
+                                "flex": 4
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "baseline",
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "ชื่อบัญชี",
+                                "color": "#aaaaaa",
+                                "size": "sm"
+                            },
+                            {
+                                "type": "text",
+                                "text": "นายนั้นนายนี้  ",
+                                "wrap": true,
+                                "color": "#666666",
+                                "size": "sm",
+                                "flex": 4
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "styles": {
+        "header": {
+            "separator": true
+        }
+    }
+}

@@ -1,0 +1,99 @@
+{
+	"type": "bubble",
+	"size": "giga",
+	"body": {
+	  "type": "box",
+	  "layout": "vertical",
+	  "contents": [
+		{
+		  "type": "box",
+		  "layout": "horizontal",
+		  "margin": "none",
+		  "contents": [
+			{
+			  "type": "text",
+			  "text": "[ID:00] NAME",
+			  "weight": "bold",
+			  "size": "sm"
+			},
+			{
+			  "type": "text",
+			  "text": "#743289384279",
+			  "color": "#aaaaaa",
+			  "size": "xs",
+			  "align": "end"
+			}
+		  ]
+		},
+		{
+		  "type": "box",
+		  "layout": "horizontal",
+		  "margin": "none",
+		  "contents": [
+			{
+			  "type": "text",
+			  "text": "ยอดเครดิต",
+			  "size": "sm",
+			  "color": "#aaaaaa",
+			  "flex": 0
+			},
+			{
+			  "type": "text",
+			  "text": "999999 บาท",
+			  "size": "sm",
+			  "align": "end"
+			}
+		  ]
+		},
+		{
+		  "type": "text",
+		  "text": "เปิดที่ 999 [01/01/24   00:00 น.]",
+		  "weight": "regular",
+		  "size": "xs",
+		  "decoration": "underline",
+		  "margin": "lg"
+		},
+		{
+		  "type": "separator",
+		  "margin": "sm"
+		},
+		{
+		  "type": "box",
+		  "layout": "horizontal",
+		  "contents": [
+			{
+			  "type": "text",
+			  "text": "เดิมพัน",
+			  "wrap": true,
+			  "size": "sm"
+			},
+			{
+			  "type": "text",
+			  "text": "แทง",
+			  "align": "end",
+			  "size": "sm"
+			},
+			{
+			  "type": "text",
+			  "text": "ยอดแทง",
+			  "align": "center",
+			  "size": "xs"
+			}
+		  ],
+		  "width": "100%",
+		  "justifyContent": "space-between",
+		  "backgroundColor": "#F5F5F5",
+		  "cornerRadius": "sm"
+		}
+		
+	  ]
+	},
+	"styles": {
+	  "body": {
+		"separator": false
+	  },
+	  "footer": {
+		"separator": true
+	  }
+	}
+  }

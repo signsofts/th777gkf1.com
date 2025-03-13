@@ -1,0 +1,32 @@
+{
+    "type": "bubble",
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "text",
+                "text": "วิธีการเล่น",
+                "weight": "bold",
+                "size": "lg",
+                "margin": "md"
+            },
+            {
+                "type": "text",
+                "text": "รายละเอียดข้อความ",
+                "size": "md",
+                "color": "#111111",
+                "wrap": false
+            },
+            {
+                "type": "separator",
+                "margin": "lg"
+            }
+        ]
+    },
+    "styles": {
+        "footer": {
+            "separator": true
+        }
+    }
+}

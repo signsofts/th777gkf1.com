@@ -1,0 +1,48 @@
+{
+    "type": "bubble",
+    "size": "giga",
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+            {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "สรุปผลแพ้-ชนะ",
+                        "weight": "bold",
+                        "size": "md",
+                        "wrap": true
+                    },
+                    {
+                        "type": "text",
+                        "text": "#999",
+                        "size": "sm",
+                        "align": "end",
+                        "wrap": true
+                    }
+                ]
+            },
+            {
+                "type": "box",
+                "layout": "baseline",
+                "margin": "xl",
+                "contents": [], 
+                "justifyContent": "center"
+            },
+            {
+                "type": "separator",
+                "margin": "lg"
+            },
+            {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "width": "100%",
+                "margin": "xl"
+            }
+        ]
+    }
+}
