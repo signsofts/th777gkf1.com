@@ -16,6 +16,7 @@
 /writable/.gitkeep
 
 # ไฟล์ที่สร้างโดย Composer
+/composer.lock
 /vendor/
 
 # ไฟล์ที่สร้างโดย CI4 หรือเครื่องมืออื่น ๆ
