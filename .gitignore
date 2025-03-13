@@ -1,12 +1,14 @@
 # ไฟล์สภาพแวดล้อม (Environment files)
 /.env
+/development.env
+/production.env
 
 # ไฟล์แคชและล็อก
-/writable/cache/
-/writable/logs/
-/writable/session/
+/writable/cache/*
+/writable/logs/*
+/writable/session/*
+/writable/debugbar/*
 # /writable/uploads/*
-/writable/debugbar/
 # /writable/lineMessage/*
 
 # ป้องกันการเพิ่มไฟล์ใน writable ที่ไม่ต้องการ
