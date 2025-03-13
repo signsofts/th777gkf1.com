@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="<?= $_SESSION["lang"] ?? "en" ?>" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="/assets/" data-template="vertical-menu-template-free">
+<html lang="<?= $_SESSION["lang"] ?? "en" ?>" class="light-style layout-menu-fixed" dir="ltr" data-theme="dark"
+    data-assets-path="/assets/" data-template="vertical-menu-template-free" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8" />

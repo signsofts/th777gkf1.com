@@ -18,7 +18,7 @@
   dir="ltr"
   data-theme="theme-default"
   data-assets-path="/assets/"
-  data-template="vertical-menu-template-free"
+  data-template="vertical-menu-template"
 > 
   <head>
     <meta charset="utf-8" />
@@ -41,7 +41,7 @@
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-dark.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="/assets/css/demo.css" />
 
     <!-- Vendors CSS -->

@@ -23,7 +23,7 @@ try {
 
             setTimeout(() => {
                 location.assign("/admin/dashboard");
-            }, 2000); 
+            }, 2000);
 
 
             return true;

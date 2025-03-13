@@ -162,7 +162,7 @@ $aler = array_map(function ($obj) use (&$check_aller) {
                     <input type="hidden" name="userId" value="<?= session('userId') ?>">
 
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="upMoneyShowModalLabel">แจ้งเตือน</h1>
+                        <h1 class="modal-title fs-5" id="upMoneyShowModalLabel"><?= lang("login.แจ้งเตือน"); ?></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -172,10 +172,11 @@ $aler = array_map(function ($obj) use (&$check_aller) {
                                 <?php if ($key == 'line' && $item['status'] === true): ?>
                                     <div class="d-flex justify-content-between  ">
                                         <div>
-                                            <p>คุณยังไม่ได้ผูกบัญชี LINE เพื่อยืนยัน</p>
+                                            <p><?= lang("login.LINE_MAP"); ?></p>
                                         </div>
                                         <div>
-                                            <a href="<?= $item['getLink']; ?>"> <i class="fa-brands fa-line"></i> ผูกบัญชี </a>
+                                            <a href="<?= $item['getLink']; ?>"> <i class="fa-brands fa-line"></i>
+                                                <?= lang("login.LINE_MAP_1"); ?> </a>
                                         </div>
                                     </div>
                                 <?php endif ?>
@@ -187,7 +188,6 @@ $aler = array_map(function ($obj) use (&$check_aller) {
                             data-bs-dismiss="modal"><?= lang("global.btn.close") ?></button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

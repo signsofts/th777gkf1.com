@@ -206,7 +206,8 @@ class LoginUsersController extends BaseUserController
         $path = '/';
 
         setcookie($name, $value, $expire, $path);
-
+        setcookie('token', $token, $expire, $path);
+        // $session->set('token', $token);
         if (!is_null($user_phone) && !is_null($user_password)) {
             return true;
         } else {
@@ -258,67 +259,70 @@ class LoginUsersController extends BaseUserController
             'fname' => [
                 'rules' => 'required|min_length[2]|max_length[50]',
                 'errors' => [
-                    'required' => 'กรุณากรอกชื่อ',
-                    'min_length' => 'ชื่อต้องมีความยาวอย่างน้อย 2 ตัวอักษร',
-                    'max_length' => 'ชื่อต้องไม่เกิน 50 ตัวอักษร',
+                    'required' => lang("login.fname_required"),
+                    'min_length' => lang("login.fname_min_length"),
+                    'max_length' => lang("login.fname_max_length"),
                 ]
             ],
             'lname' => [
                 'rules' => 'required|min_length[2]|max_length[50]',
                 'errors' => [
-                    'required' => 'กรุณากรอกนามสกุล',
-                    'min_length' => 'นามสกุลต้องมีความยาวอย่างน้อย 2 ตัวอักษร',
-                    'max_length' => 'นามสกุลต้องไม่เกิน 50 ตัวอักษร',
+                    'required' => lang("login.lname_min_length"),
+                    'min_length' => lang("login.lname_min_length"),
+                    'max_length' => lang("login.lname_max_length"),
                 ]
             ],
             'tel_phone' => [
                 'rules' => 'required|min_length[9]|max_length[15]|numeric|is_unique[members.user_phone]',
                 'errors' => [
-                    'required' => 'กรุณากรอกเบอร์โทรศัพท์',
-                    'min_length' => 'เบอร์โทรศัพท์ต้องมีความยาวอย่างน้อย 9 ตัวเลข',
-                    'max_length' => 'เบอร์โทรศัพท์ต้องไม่เกิน 15 ตัวเลข',
-                    'numeric' => 'เบอร์โทรศัพท์ต้องเป็นตัวเลขเท่านั้น',
-                    'is_unique' => 'เบอร์นี้ถูกใช้งานแล้ว'
+                    'required' => lang("login.tel_required"), // 'กรุณากรอกเบอร์โทรศัพท์',
+                    'min_length' => lang("login.tel_min_length"), // 'เบอร์โทรศัพท์ต้องมีความยาวอย่างน้อย 9 ตัวเลข',
+                    'max_length' => lang("login.tel_max_length"), // 'เบอร์โทรศัพท์ต้องไม่เกิน 15 ตัวเลข',
+                    'numeric' => lang("login.tel_numeric"), // 'เบอร์โทรศัพท์ต้องเป็นตัวเลขเท่านั้น',
+                    'is_unique' => lang("login.tel_is_unique"), // 'เบอร์นี้ถูกใช้งานแล้ว'
                 ]
             ],
             'email' => [
                 'rules' => 'required|min_length[4]|max_length[255]|valid_email|is_unique[members.user_email]',
                 'errors' => [
-                    'required' => 'กรุณากรอกอีเมล',
-                    'valid_email' => 'รูปแบบอีเมลไม่ถูกต้อง',
-                    'is_unique' => 'อีเมลนี้ถูกใช้งานแล้ว'
+                    'required' => lang("login.email_required"),  //'กรุณากรอกอีเมล',
+                    'valid_email' => lang("login.email_valid_email"),  //'รูปแบบอีเมลไม่ถูกต้อง',
+                    'is_unique' => lang("login.email_is_unique"),  //'อีเมลนี้ถูกใช้งานแล้ว',
                 ]
             ],
             'line' => [
                 'rules' => 'required|min_length[2]|max_length[50]',
                 'errors' => [
-                    'required' => 'กรุณากรอก LINE ID',
-                    'min_length' => 'LINE ID ต้องมีความยาวอย่างน้อย 2 ตัวอักษร',
-                    'max_length' => 'LINE ID ต้องไม่เกิน 50 ตัวอักษร'
+                    'required' => lang("login.line_required"), // 'กรุณากรอก LINE ID',
+                    'min_length' => lang("login.line_min_length"), // 'LINE ID ต้องมีความยาวอย่างน้อย 2 ตัวอักษร',
+                    'max_length' => lang("login.line_max_length"), // 'LINE ID ต้องไม่เกิน 50 ตัวอักษร'
                 ]
             ],
             'bank' => [
                 'rules' => 'required|max_length[100]',
                 'errors' => [
-                    'required' => 'กรุณากรอกชื่อธนาคาร',
-                    'max_length' => 'ชื่อธนาคารต้องไม่เกิน 100 ตัวอักษร'
+                    'required' => lang("login.bank_required"), // 'กรุณากรอกชื่อธนาคาร',
+                    'max_length' => lang("login.bank_max_length"), // 'ชื่อธนาคารต้องไม่เกิน 100 ตัวอักษร'
                 ]
             ],
             'bank_number' => [
                 'rules' => 'required|min_length[2]|max_length[20]|numeric',
                 'errors' => [
-                    'required' => 'กรุณากรอกเลขที่บัญชี',
-                    'min_length' => 'เลขที่บัญชีต้องมีความยาวอย่างน้อย 10 ตัวเลข',
-                    'max_length' => 'เลขที่บัญชีต้องไม่เกิน 20 ตัวเลข',
-                    'numeric' => 'เลขที่บัญชีต้องเป็นตัวเลขเท่านั้น'
+                    'required' => lang("login.bank_number_required"), // 'กรุณากรอกเลขที่บัญชี',
+                    'min_length' => lang("login.bank_number_min_length"), // 'เลขที่บัญชีต้องมีความยาวอย่างน้อย 10 ตัวเลข',
+                    'max_length' => lang("login.bank_number_max_length"), // 'เลขที่บัญชีต้องไม่เกิน 20 ตัวเลข',
+                    'numeric' => lang("login.bank_number_numeric"), // 'เลขที่บัญชีต้องเป็นตัวเลขเท่านั้น'
                 ]
             ],
             'password' => [
                 'rules' => 'required|min_length[8]|max_length[255]',
                 'errors' => [
-                    'required' => 'กรุณากรอกรหัสผ่าน',
-                    'min_length' => 'รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร',
-                    'max_length' => 'รหัสผ่านต้องไม่เกิน 255 ตัวอักษร'
+                    'required' => lang("login.password_required"),
+                    'กรุณากรอกรหัสผ่าน',
+                    'min_length' => lang("login.password_min_length"),
+                    'รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร',
+                    'max_length' => lang("login.password_max_length"),
+                    'รหัสผ่านต้องไม่เกิน 255 ตัวอักษร'
                 ]
             ]
         ];
@@ -333,7 +337,7 @@ class LoginUsersController extends BaseUserController
             if ($agent_resp) {
                 $agent_check = true;
             } else {
-                return redirect()->back()->with('error', 'รหัสตัวแทนไม่ถูกต้อง');
+                return redirect()->back()->with('error', lang("login.รหัสตัวแทนไม่ถูกต้อง"));
             }
         }
 
@@ -375,7 +379,7 @@ class LoginUsersController extends BaseUserController
             }
         } else {
             $errors = $this->validator->getErrors();
-            return redirect()->back()->with('error', json_encode($errors));
+            return redirect()->back()->with('error', $errors);
         }
     }
 

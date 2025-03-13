@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="assets/"
-    data-template="vertical-menu-template-free">
+    data-template="vertical-menu-template">
 
 <head>
     <meta charset="utf-8" />
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?= base_url('') ?>assets/vendor/fonts/boxicons.css" />
     <link rel="stylesheet" href="<?= base_url('') ?>assets/vendor/css/core.css"
         class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?= base_url('') ?>assets/vendor/css/theme-default.css"
+    <link rel="stylesheet" href="<?= base_url('') ?>assets/vendor/css/theme-dark.css"
         class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url('') ?>assets/css/demo.css" />
     <link rel="stylesheet" href="<?= base_url('') ?>assets/vendor/libs/select2/select2.min.css" />

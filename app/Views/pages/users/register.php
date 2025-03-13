@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="BS8SttmJcndH1OlcZq2GKZ63EkBqTRKIk5cLD5sE">
     <meta name="imageURI" content="<?= base_url('icons/icon-b.png'); ?>">
     <meta name="band" content="limbo">
-    <meta name="regi_button" content="เว็บพนันออนไลน์ อันดับ 1 ">
+    <meta name="regi_button" content="<?= lang("login.tfooter") ?>">
     <meta name="login_theme" content="login_theme_v1">
     <meta name="login_theme_v" content="">
     <meta property="og:description" content="Copyright 2021 ©  เว็บพนันออนไลน์ อันดับ 1 All Rights Reserved.">
@@ -22,8 +22,7 @@
     <link rel="icon" href="<?= base_url('icons/icon-b.png'); ?>" type="image/x-icon">
     <title><?= getenv("CI_TITLE") ?>
     </title>
-    <meta name="description"
-        content=" เว็บพนันออนไลน์อันดับ 1 ที่รวบรวม คาสิโนออนไลน์อย่างครบถ้วน ทั้งคาสิโนสด เกมส์สล็อตออนไลน์ พร้อมทั้งตัวเกมส์ใหม่แบบ อี-สปอร์ต เพื่อมอบความหลากหลายให้ท่านได้ใช้บริการ">
+    <meta name="description" content="<?= lang("login.description") ?>">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
@@ -34,6 +33,8 @@
     <link rel="manifest" href="<?= base_url('manifest.json'); ?>">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png">
     <meta name="theme-color" content="#212529">
+
+</head>
 
 <body style="background: radial-gradient(circle, rgb(39, 39, 39) 0px, rgb(6, 6, 6) 70%); height: auto;">
 
@@ -62,13 +63,13 @@
                             <ul
                                 class="dropdown-menu dropdown-menu-right lang_dropdown animate slideIn position_lang_regis">
                                 <li class="thai lang_active">
-                                    <a href="<?= site_url('lang/th'); ?>">
+                                    <a href="<?= base_url('lang/th'); ?>">
                                         <img src="/assets/ucoppy/th.png" class="lang_flag_regis"><span
                                             class="lang_text_regis">TH</span>
                                     </a>
                                 </li>
                                 <li class="eng ">
-                                    <a href="<?= site_url('lang/en'); ?>">
+                                    <a href="<?= base_url('lang/en'); ?>">
                                         <img src="/assets/ucoppy/en.png" class="lang_flag_regis"><span
                                             class="lang_text_regis">EN</span>
                                     </a>
@@ -83,7 +84,7 @@
                         <div class="card-body login-card-body">
 
                             <p class="font-title-login">
-                                <span class="title_font_color_register">กรอกข้อมูล</span>
+                                <span class="title_font_color_register"><?= lang("login.กรอกข้อมูล") ?></span>
                             </p>
 
                             <div class="row">
@@ -94,9 +95,18 @@
                                         </div>
                                     <?php endif ?>
                                     <?php if (session()->has('error')): ?>
-                                        <div class="alert alert-danger" role="alert">
-                                            <?= session('error') ?>
-                                        </div>
+                                        <?php if (gettype(session('error')) == 'string'): ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                <?= session('error') ?>
+                                            </div>
+                                        <?php elseif (gettype(session('error')) == 'array'): ?>
+                                            <?php foreach (session('error') as $mess): ?>
+                                                <div class="alert alert-danger" role="alert">
+                                                    <?= $mess ?>
+                                                </div>
+                                            <?php endforeach ?>
+                                        <?php endif ?>
+
                                     <?php endif ?>
                                 </div>
                             </div>
@@ -104,65 +114,73 @@
                             <?php echo form_open(base_url("customer/register"), ['csrf_id' => '_token']); ?>
 
                             <div class="form-group text-left">
-                                <label for="fname" class="font_color_register">ชื่อจริง :</label>
-                                <input required type="text" name="fname" placeholder="ชื่อจริง"
+                                <label for="fname" class="font_color_register"><?= lang("login.ชื่อจริง") ?> :</label>
+                                <input required type="text" name="fname" placeholder="<?= lang("login.ชื่อจริง") ?>"
                                     class="form-control register_input">
                             </div>
 
                             <div class="form-group text-left">
-                                <label for="lname" class="font_color_register">นามสกุล:</label>
-                                <input required type="text" name="lname" placeholder="นามสกุล"
-                                    class="form-control register_input">
-                            </div>
-
-
-                            <div class="form-group text-left">
-                                <label for="tel_phone" class="font_color_register">เบอร์โทรศัพท์มือถือ :</label>
-                                <input required type="text" name="tel_phone" placeholder="เบอร์โทรศัพท์มือถือ"
-                                    autocomplete="off" oninput="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);"
+                                <label for="lname" class="font_color_register"><?= lang("login.นามสกุล") ?>:</label>
+                                <input required type="text" name="lname" placeholder="<?= lang("login.นามสกุล") ?>"
                                     class="form-control register_input">
                             </div>
 
 
                             <div class="form-group text-left">
-                                <label for="email" class="font_color_register">อีเมล
+                                <label for="tel_phone"
+                                    class="font_color_register"><?= lang("login.เบอร์โทรศัพท์มือถือ") ?> :</label>
+                                <input required type="text" name="tel_phone"
+                                    placeholder="<?= lang("login.เบอร์โทรศัพท์มือถือ") ?>" autocomplete="off"
+                                    oninput="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);"
+                                    class="form-control register_input">
+                            </div>
+
+
+                            <div class="form-group text-left">
+                                <label for="email" class="font_color_register"><?= lang("login.labelEmail") ?>
                                     :</label>
-                                <input required type="email" name="email" placeholder="อีเมล" autocomplete="off"
-                                    class="form-control register_input">
+                                <input required type="email" name="email" placeholder="<?= lang("login.labelEmail") ?>"
+                                    autocomplete="off" class="form-control register_input">
                             </div>
 
 
                             <div class="form-group text-left">
-                                <label for="password" class="font_color_register">รหัสผ่าน:</label>
-                                <input required type="password" name="password" placeholder="รหัสผ่าน"
+                                <label for="password"
+                                    class="font_color_register"><?= lang("login.labelPassword") ?>:</label>
+                                <input required type="password" name="password"
+                                    placeholder="<?= lang("login.labelPassword") ?>"
                                     class="form-control register_input">
                             </div>
 
 
 
                             <div class="form-group text-left">
-                                <label for="line" class="font_color_register">Line ID:</label>
-                                <input required type="text" name="line" placeholder="Line ID"
+                                <label for="line" class="font_color_register"><?= lang("login.LINEID") ?>:</label>
+                                <input required type="text" name="line" placeholder="<?= lang("login.LINEID") ?>"
                                     class="form-control register_input">
                             </div>
                             <div class="form-group text-left">
-                                <label for="bank" class="font_color_register">ธนาคาร:</label>
+                                <label for="bank" class="font_color_register"><?= lang("login.ธนาคาร") ?> :</label>
                                 <select required name="bank" class="form-control form-select register_input">
-                                    <option value=""> เลือกธนาคาร </option>
+                                    <option value=""> <?= lang("login.เลือกธนาคาร") ?> </option>
                                     <?php foreach ($banks as $item): ?>
-                                        <option value="<?= $item->bank_name; ?>"><?= $item->bank_name; ?></option>
+                                        <option value="<?= $lang == "th" ? $item->bank_name : $item->bank_nameEN; ?>">
+                                            <?= $lang == "th" ? $item->bank_name : $item->bank_nameEN; ?>
+                                        </option>
                                     <?php endforeach ?>
                                 </select>
                             </div> <!---->
                             <div class="form-group text-left">
-                                <label for="bank_number" class="font_color_register">เลขบัญชี :</label>
-                                <input required type="number" name="bank_number" placeholder="เลขบัญชี"
+                                <label for="bank_number" class="font_color_register"><?= lang("login.เลขบัญชี") ?>
+                                    :</label>
+                                <input required type="number" name="bank_number"
+                                    placeholder="<?= lang("login.เลขบัญชี") ?>"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);"
                                     class="form-control register_input">
                             </div>
                             <div id="divrecom" class="form-group text-left mb-0">
-                                <label class="font_color_register">รหัสผู้แนะนำ :</label>
-                                <input type="text" name="agent" placeholder="รหัสผู้แนะนำ"
+                                <label class="font_color_register"><?= lang("login.รหัสผู้แนะนำ") ?> :</label>
+                                <input type="text" name="agent" placeholder="<?= lang("login.รหัสผู้แนะนำ") ?>"
                                     class="form-control register_input">
                             </div> <!---->
                             <div class="form-group text-left pt-0">
@@ -173,23 +191,23 @@
                             <div class="row pt-1">
                                 <div class="col-12">
                                     <button type="submit" class="btn w-100 confirm_btn_regis_login btn_register_submit">
-                                        ยืนยันการสมัคร
+                                        <?= lang("login.ยืนยันการสมัคร") ?>
                                     </button>
                                 </div>
                             </div>
                             <?= form_close(); ?>
                             <div class="container_btn_register"><!----> <!---->
                                 <div class="btn_regi_outlined"><a href="<?= base_url('users/signin'); ?>">
-                                        เข้าสู่ระบบ
+                                        <?= lang("login.btnSubmit") ?>
                                     </a></div> <span>|</span>
                                 <div class="btn_regi_scale_transition"><a onclick="goTOLinkLine(this)"
                                         name="https://line.me/ti/p/<?= getenv('LINE_CHANNEL_BASIC_ID'); ?>"><i
-                                            class="fab fa-line line-contract"></i> <span><u>ติดต่อเรา</u></span></a>
+                                            class="fab fa-line line-contract"></i>
+                                        <span><u><?= lang("login.cont") ?></u></span></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
