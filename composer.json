@@ -7,22 +7,22 @@
         "php": "^8.1",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "codeigniter/coding-standard": "^1.7",
-        "codeigniter4/translations": "^4.5",
-        "doctrine/orm": "^3.3",
-        "firebase/php-jwt": "^6.10",
-        "laminas/laminas-escaper": "^2.13",
-        "linecorp/line-bot-sdk": "*"
+        "codeigniter/coding-standard": "1.7",
+        "codeigniter4/translations": "4.5",
+        "doctrine/orm": "3.3",
+        "firebase/php-jwt": "6.11.0",
+        "laminas/laminas-escaper": "^2.16.0",
+        "linecorp/line-bot-sdk": "10.2.1"
     },
     "require-dev": {
-        "psr/log": "*",
-        "fakerphp/faker": "^1.9",
-        "friendsofphp/php-cs-fixer": "^3.47.1",
-        "kint-php/kint": "^5.0.4",
-        "mikey179/vfsstream": "^1.6",
-        "nexusphp/cs-config": "^3.6",
-        "phpunit/phpunit": "^10.5.16",
-        "predis/predis": "^1.1 || ^2.0"
+        "psr/log": "3.0.2",
+        "fakerphp/faker": "1.24.1",
+        "friendsofphp/php-cs-fixer": "3.71.0",
+        "kint-php/kint": "5.1.1",
+        "mikey179/vfsstream": "1.6.12",
+        "nexusphp/cs-config": "3.25.2",
+        "phpunit/phpunit": "10.5.45",
+        "predis/predis": "2.3.0"
     },
     "suggest": {
         "ext-curl": "If you use CURLRequest class",
