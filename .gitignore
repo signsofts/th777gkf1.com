@@ -11,7 +11,7 @@
 
 # ป้องกันการเพิ่มไฟล์ใน writable ที่ไม่ต้องการ
 # /writable/*/*
-!/writable/.gitkeep
+/writable/.gitkeep
 
 # ไฟล์ที่สร้างโดย Composer
 /vendor/
