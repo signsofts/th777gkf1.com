@@ -1,7 +1,7 @@
 # ไฟล์สภาพแวดล้อม (Environment files)
-/.env
-/development.env
-/production.env
+# /.env
+# /development.env
+# /production.env
 
 # ไฟล์แคชและล็อก
 /writable/cache/*
