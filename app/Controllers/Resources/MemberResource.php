@@ -144,10 +144,21 @@ class MemberResource extends ResourceController
 
     public function delete($id = null)
     {
+
+        $request = \Config\Services::request();
+
         $MembersModel = new MembersModel();
         // $MembersModel->delete($id);
 
+        $data = $request->getJSON();
+        
+        $MembersModel->update($data->user_id, [
+            "userDelete" => '1',
+            "deleted_at" => date("Y-m-d H:i:s")
+        ]);
 
-        return $this->respond(['message' => "", "status" => true], 200);
+
+
+        return $this->respond(['message' => "", "data" => $data, "status" => true], 200);
     }
 }

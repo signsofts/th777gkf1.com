@@ -11,7 +11,7 @@ use CodeIgniter\I18n\Time;
 <?= $this->endSection() ?>
 <?= $this->section('nav-title') ?><?= $this->endSection() ?>
 <?= $this->section('style') ?>
-<link rel="stylesheet" href="<?= base_url("assets/pages/css/m-show.css?v=") . time() ?>">
+<link rel="stylesheet" href="<?= base_url("assets/pages/css/m-show.css") ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -89,13 +89,10 @@ use CodeIgniter\I18n\Time;
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="d-flex mb-3">
-                            <div class="flex-grow-1 row">
-                                <div class="col-12 mb-sm-0 mb-2">
-                                    <button type="button" class="btn btn-sm btn-warning"><?= lang("global.page.member.show.btn.edit") ?></button>
-                                </div>
-                            </div>
-                        </div> -->
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="button" onclick="deleteUser('<?= $member->user_id; ?>')"
+                                class="btn btn-md btn-danger"><?= lang("global.btn.delete") ?></button>
+                        </div>
                         <hr>
                     </div>
                 </div>
@@ -420,5 +417,5 @@ use CodeIgniter\I18n\Time;
 
 
 <?= $this->section('script') ?>
-<script src="<?= base_url("assets/pages/js/m-show.js?v=") . time() ?>"></script>
+<script src="<?= base_url("assets/pages/js/m-show.js") ?>"></script>
 <?= $this->endSection() ?>

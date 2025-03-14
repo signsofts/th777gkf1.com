@@ -1,6 +1,6 @@
 <?php 
 return [
-    "TM1" => "Deposit Notification",
+    "TM1" => "Deposit",
     "TM2" => "Withdraw",
     "TM3" => "Deposit - Withdraw",
     "TM4" => "Account Settings",
@@ -9,7 +9,7 @@ return [
     "T3" => "Joined",
     "T4" => "All Rooms",
     "T5" => "Joined Rooms",
-    "T6" => "Withdrawal Notification",
+    "T6" => "Withdrawal",
     "T7" => "Deposit - Withdrawal Notification",
     "T8" => "Amount",
     "T9" => "Status",

@@ -3,7 +3,8 @@
 <?php //dd($_SESSION); ?>
 
 
-<nav class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+<nav class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+    id="layout-navbar">
     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
             <i class="bx bx-menu bx-sm"></i>
@@ -15,26 +16,40 @@
         <div class="navbar-nav align-items-center">
             <div class="nav-item d-flex align-items-center">
                 <span class="fs-3"><?= '' //$this->renderSection('nav-title') 
-                                    ?> 
+                    ?>
                     <?= '' // getenv("CI_TITLE") 
-                    ?></span>
+                        ?></span>
             </div>
         </div>
         <!-- /Search -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
-            <li class="nav-item lh-1 me-3">
-                <a class="dropdown-item <?= $session->get('lang') == "en" ? 'active' : "" ?>" href="<?= site_url('lang/en'); ?>"> <img class="w-px-40 h-auto rounded-circle" src="/assets/img/icons/lang/english.png"> English</a>
-            </li>
-            <li class="nav-item lh-1 me-3">
-                <a class="dropdown-item <?= $session->get('lang') == "th" ? 'active' : "" ?>" href="<?= site_url('lang/th'); ?>"> <img class="w-px-40 h-auto rounded-circle" src="/assets/img/icons/lang/thailand.png"> Thailand</a>
+            <li class="nav-item dropdown me-2 me-xl-0 mr-5">
+                <a class="nav-link dropdown-toggle hide-arrow" id="nav-theme" href="javascript:void(0);"
+                    data-bs-toggle="dropdown" aria-label="Toggle theme (dark)" aria-expanded="false">
+                    <img class="w-px-40 h-auto rounded-circle"
+                        src="<?= $session->get('lang') == "th" ? '/assets/img/icons/lang/thailand.png' : "/assets/img/icons/lang/english.png" ?>">
+
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-theme-text">
+                    <li class="nav-item lh-1 me-3">
+                        <a class="dropdown-item <?= $session->get('lang') == "en" ? 'active' : "" ?>"
+                            href="<?= site_url('lang/en'); ?>"> <img class="w-px-40 h-auto rounded-circle"
+                                src="/assets/img/icons/lang/english.png"> English</a>
+                    </li>
+                    <li class="nav-item lh-1 me-3">
+                        <a class="dropdown-item <?= $session->get('lang') == "th" ? 'active' : "" ?>"
+                            href="<?= site_url('lang/th'); ?>"> <img class="w-px-40 h-auto rounded-circle"
+                                src="/assets/img/icons/lang/thailand.png"> Thailand</a>
+                    </li>
+                </ul>
             </li>
 
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                        <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                        <img src="/logo_j.jpg" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -43,7 +58,8 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                        <img src="/logo_j.jpg" alt
+                                            class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">

@@ -18,7 +18,8 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
     <a href="<?= base_url('users'); ?>" class="app-brand-link">
         <span class="app-brand-logo demo">
         </span>
-        <span class="app-brand-text demo menu-text fw-bolder ms-2 text" style="text-transform :capitalize;"><?= getenv('CI_TITLE') ?></span>
+        <span class="app-brand-text demo menu-text fw-bolder ms-2 text"
+            style="text-transform :capitalize;"><?= getenv('CI_TITLE') ?></span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -40,7 +41,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
             <div><?= lang('users.TM3') ?></div>
         </a>
     </li>
-    <li class="menu-item <?= $segments1 == "account" && $segments2 == '' ? "active" : "" ?>">
+    <li class="menu-item <?= $segments1 == "users" && $segments2 == 'account' ? "active" : "" ?>">
         <a href="<?= base_url('users/account'); ?>" class="menu-link">
             <i class='menu-icon tf-icons bx bx-dock-top'></i>
             <div><?= lang('users.TM4') ?></div>

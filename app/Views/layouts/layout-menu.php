@@ -31,7 +31,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
 <ul class="menu-inner py-1">
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1' || $_SESSION["user"]->RoleID == '2' || $_SESSION["user"]->RoleID == '3' || $_SESSION["user"]->RoleID == '5'): ?>
-        <li class="menu-item <?= $segments1 == '' ? "active" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin'  && $segments2 == '' ? "active" : "" ?>">
             <a href="<?= base_url('admin'); ?>" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-dashboard'></i>
                 <div><?= lang('menu.text.dashboard') ?></div>
@@ -41,13 +41,13 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1' || $_SESSION["user"]->RoleID == '2' || $_SESSION["user"]->RoleID == '3' || $_SESSION["user"]->RoleID == '5'): ?>
 
-        <li class="menu-item <?= $segments1 == 'g' ? "active" : "" ?>">
+        <!-- <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'g' ? "active" : "" ?>">
             <a href="/admin/g/v" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div><?= lang('menu.text.rooms') ?></div>
             </a>
-        </li>
-        <!-- <li class="menu-item <?= $segments1 == 'g' ? "active open" : "" ?>">
+        </li> -->
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'g' ? "active open" : "" ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts"><?= lang('menu.text.rooms') ?></div>
@@ -58,7 +58,6 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
                     ->where('groupDelete', '0')
                     ->findAll();
                 ?>
-
                 <?php foreach ($groupRow as $key => $item): ?>
                     <li class="menu-item <?= $segments3 == $item->groupId ? "active" : "" ?>">
                         <a href="<?= base_url('admin/g/v/'); ?><?= $item->groupId ?>" class="menu-link">
@@ -67,12 +66,12 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
                     </li>
                 <?php endforeach; ?>
             </ul>
-        </li> -->
+        </li>
     <?php endif ?>
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1' || $_SESSION["user"]->RoleID == '2' || $_SESSION["user"]->RoleID == '3' || $_SESSION["user"]->RoleID == '6'): ?>
 
-        <li class="menu-item <?= $segments1 == 'm' ? "active" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'm' ? "active" : "" ?>">
             <a href="/admin/m" class="menu-link">
                 <i class='menu-icon tf-icons bx bx-user-circle'></i>
                 <div><?= lang('menu.text.members') ?></div>
@@ -82,7 +81,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
     <?php endif ?>
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1' || $_SESSION["user"]->RoleID == '2' || $_SESSION["user"]->RoleID == '3' || $_SESSION["user"]->RoleID == '7'): ?>
-        <li class="menu-item <?= $segments1 == 'b' && $segments2 == '' ? "active" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'b' && $segments2 == '' ? "active" : "" ?>">
             <a href="/admin/b" class="menu-link">
                 <i class='menu-icon tf-icons  bx bxs-bank'></i>
                 <div><?= lang('menu.text.banks') ?></div>
@@ -91,7 +90,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
     <?php endif ?>
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1' || $_SESSION["user"]->RoleID == '2' || $_SESSION["user"]->RoleID == '3' || $_SESSION["user"]->RoleID == '7' || $_SESSION["user"]->RoleID == '6'): ?>
-        <li class="menu-item <?= $segments1 == 'b' && $segments2 == 'approve' ? "active" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'b' && $segments2 == 'approve' ? "active" : "" ?>">
             <a href="/admin/b/approve" class="menu-link">
                 <i class='menu-icon tf-icons  bx bxs-bank'></i>
                 <div><?= lang('menu.TM1') ?></div>
@@ -101,7 +100,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
 
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1'): ?>
-        <li class="menu-item <?= $segments1 == 'ac' ? "active" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'ac' ? "active" : "" ?>">
             <a href="<?= base_url('admin/ac'); ?>" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-shield-alt-2'></i>
                 <div><?= lang('menu.text.admin') ?></div>
@@ -110,7 +109,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
     <?php endif ?>
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1'): ?>
-        <li class="menu-item <?= $segments1 == 'report' ? "active open" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'report' ? "active open" : "" ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div><?= lang('menu.text.report') ?></div>
@@ -128,7 +127,7 @@ $segments5 = isset($uriStr[4]) ? $uriStr[4] : "";
 
 
     <?php if ($_SESSION["user"]->RoleID == '4' || $_SESSION["user"]->RoleID == '1'): ?>
-        <li class="menu-item <?= $segments1 == 'setting' ? "active open" : "" ?>">
+        <li class="menu-item <?= $segments1 == 'admin' && $segments2 == 'setting' ? "active open" : "" ?>">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div><?= lang('menu.text.setting') ?></div>

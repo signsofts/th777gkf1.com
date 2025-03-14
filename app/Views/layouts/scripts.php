@@ -20,4 +20,4 @@
  <script src="<?= site_url('assets/vendor/') ?>libs/apex-charts/apexcharts.js"></script>
  <!-- Main JS -->
  <script src="<?= site_url('') ?>/assets/js/main.js"></script>
- <script src="<?= site_url('') ?>/assets/js/main-all.js?v=<?= time(); ?>"></script>
+ <script src="<?= site_url('') ?>/assets/js/main-all.js"></script>

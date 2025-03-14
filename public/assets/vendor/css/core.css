@@ -182,7 +182,7 @@
     color-scheme: dark;
     --bs-body-color: #b2b2c4;
     --bs-body-color-rgb: 178, 178, 196;
-    --bs-body-bg: #232333;
+    --bs-body-bg: #151515;
     --bs-body-bg-rgb: 35, 35, 51;
     --bs-emphasis-color: #fff;
     --bs-emphasis-color-rgb: 255, 255, 255;
@@ -4394,7 +4394,7 @@ fieldset:disabled .btn {
     border-radius: 0.5rem;
 }
 
-.card>hr {
+.card > hr {
     margin-right: 0;
     margin-left: 0;
 }

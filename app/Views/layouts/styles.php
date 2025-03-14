@@ -15,14 +15,13 @@
 <link rel="stylesheet" href="<?= base_url('assets/vendor/fontawesome/css/all.min.css') ?>" />
 
 <!-- Core CSS -->
-<link rel="stylesheet" href="<?= base_url('assets/vendor/css/core.css' . "?v=" . time()) ?>"
-    class="template-customizer-core-css" />
+<link rel="stylesheet" href="<?= base_url('assets/vendor/css/core.css') ?>" class="template-customizer-core-css" />
 
-<link rel="stylesheet" href="<?= base_url('assets/vendor/css/theme-dark.css' . "?v=" . time()) ?>"
+<link rel="stylesheet" href="<?= base_url('assets/vendor/css/theme-default.css') ?>"
     class="template-customizer-theme-css" />
 <link rel="stylesheet" href="<?= base_url('assets/css/demo.css') ?>" />
 
 <link rel="stylesheet" href="<?= base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') ?>" />
 
-<script src="<?= base_url('assets/vendor/js/helpers.js?v=') . time() ?>"></script>
-<script src="<?= base_url('assets/js/config.js?v=') . time() ?>"></script>
+<script src="<?= base_url('assets/vendor/js/helpers.js') ?>"></script>
+<script src="<?= base_url('assets/js/config.js') ?>"></script>

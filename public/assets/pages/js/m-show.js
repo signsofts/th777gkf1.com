@@ -3,6 +3,36 @@ const userStatements = new DataTable('#table-userStatements', {
 });
 // const userGroups = new DataTable('#table-userGroups');
 
+const deleteUser = async (user_id) => {
+
+    if (!confirm("You Delete Users ? ")) {
+        return true;
+    }
+    
+    const Form = new FormData();
+    Form.append("user_id", user_id);
+    const data = formDataToJson(Form);
+
+    const DELETE = await fetch("/api/v1/resource/member/" + Form.get('user_id'), {
+        headers: {
+            'Authorization': `Bearer ${getTokenFromStore()}`, // Authorization header with Bearer token
+            'Content-Type': 'application/json' // Example of setting another header
+        },
+        method: "DELETE",
+        body: data,
+    });
+
+    let response = await DELETE.json();
+    // return;
+    if (response.status == true) {
+        showToast(response.message ?? 'success', 'alert', 'success')
+        setTimeout(() => {
+            location.assign("/admin/m")
+        }, 600);
+        return;
+    }
+    showToast(response.error ?? 'error', 'alert', 'error')
+}
 
 try {
     document.getElementById("id-FormUpMoney").addEventListener("submit", async e => {
