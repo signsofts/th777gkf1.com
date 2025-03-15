@@ -1,7 +1,7 @@
 const tableList = new DataTable('#table-list');
 let length = 0;
 const loadData = async () => {
-
+    const lang = getCookie('lang') ?? 'en';
     let token = getTokenFromStore();
     // console.log(token)
     const GET = await fetch("/api/v1/resource/payment" + "?q=n", {
@@ -31,7 +31,7 @@ const loadData = async () => {
 
         let btnApp = ``;
         if (item.PAY_APPROVE == null) {
-            btnApp = `<button class="btn btn-sm btn-outline-primary" onclick="appRove(this)" data-value="${item.PAY_ID}" > อนุมัติ </button>`;
+            btnApp = `<button class="btn btn-sm btn-outline-primary" onclick="appRove(this)" data-value="${item.PAY_ID}" > ${lang == "th" ? "รายละเอียด" : "Details"} </button>`;
         } else {
             continue;
         }
@@ -62,7 +62,18 @@ const loadData = async () => {
     tableList.draw();
 }
 
-const submintFrom = async (type, PAY_ID, PAY) => {
+let submint_count = 0;
+const submintFrom = async (type, PAY_ID, PAY, ev = null) => {
+
+
+    if (submint_count == 1) {
+        return false;
+    } else {
+        submint_count = 1;
+    }
+
+
+
     const lang = getCookie('lang') ?? 'en';
     const Form = new FormData();
     switch (type) {
@@ -139,8 +150,8 @@ const appRove = async (ev) => {
     });
     let html = ``;
     let footer = `
-    <button type="submint" onclick="submintFrom('yes','${PAY_ID}','${resp.PAY_IN}')"  class="btn btn-lg btn-outline-primary"  > Yes's </button>
-    <button type="submint" onclick="submintFrom('no','${PAY_ID}','${resp.PAY_IN}')"  class="btn btn-lg btn-danger"  > No </button>`;
+    <button type="submint" onclick="submintFrom('yes','${PAY_ID}','${resp.PAY_IN}',this)"  class="btn btn-lg btn-outline-primary"  > Yes's </button>
+    <button type="submint" onclick="submintFrom('no','${PAY_ID}','${resp.PAY_IN}',this)"  class="btn btn-lg btn-danger"  > No </button>`;
 
     const PAY_IN = resp.PAY_IN;
     const PAY_OUT = resp.PAY_OUT;

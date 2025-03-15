@@ -15,7 +15,7 @@ $routes->useSupportedLocalesOnly ( TRUE );
 $routes->get ( 'lang/{locale}', [ Language::class, 'index' ] );
 $routes->match ( [ 'GET', 'POST' ], 'webhook', [ MessageLineApiController::class, 'webhook' ] );
 $routes->match ( [ 'GET' ], 'wlog', [ MessageLineApiController::class, 'webhook_log' ] );
-$routes->match(['GET'], 'mlog', [MessageLineApiController::class, 'mlog']);
+// $routes->match(['GET'], 'logm', [MessageLineApiController::class, 'logm']);
 
 // $routes->get ( "mlog", [ MessageLineApiController::class, 'mlog' ] );
 

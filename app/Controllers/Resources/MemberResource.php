@@ -154,6 +154,11 @@ class MemberResource extends ResourceController
         
         $MembersModel->update($data->user_id, [
             "userDelete" => '1',
+            // "userId" => NULL,
+            // "displayName" => NULL,
+            // "pictureUrl" => NULL,
+            // "statusMessage" => NULL,
+            // "statusMessage" => NULL,
             "deleted_at" => date("Y-m-d H:i:s")
         ]);
 

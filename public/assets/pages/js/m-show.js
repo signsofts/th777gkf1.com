@@ -8,7 +8,7 @@ const deleteUser = async (user_id) => {
     if (!confirm("You Delete Users ? ")) {
         return true;
     }
-    
+
     const Form = new FormData();
     Form.append("user_id", user_id);
     const data = formDataToJson(Form);
@@ -34,8 +34,17 @@ const deleteUser = async (user_id) => {
     showToast(response.error ?? 'error', 'alert', 'error')
 }
 
+let FormUpMoney_COUNT = 0;
+
 try {
     document.getElementById("id-FormUpMoney").addEventListener("submit", async e => {
+
+        if (FormUpMoney_COUNT == 1) {
+            return false;
+        } else {
+            FormUpMoney_COUNT = 1;
+        }
+
         e.preventDefault();
         const ev = e.target;
         const POST = await fetch("/api/v1/resource/mstatements", {
@@ -60,11 +69,23 @@ try {
 
     })
 } catch (error) {
+    FormUpMoney_COUNT = 0;
     console.error(error);
+    showToast('error', 'alert', 'danger')
+
 }
 
+let FormWithDraw_cont = 0;
 try {
     document.getElementById("id-FormWithDraw").addEventListener("submit", async e => {
+
+        if (FormWithDraw_cont == 1) {
+            return false;
+        } else {
+            FormWithDraw_cont = 1;
+        }
+
+
         e.preventDefault();
         const ev = e.target;
         const POST = await fetch("/api/v1/resource/mstatements", {
@@ -87,7 +108,12 @@ try {
         showToast(response.error ?? 'error', 'alert', 'error')
     })
 } catch (error) {
+
+    FormWithDraw_cont = 0;
     console.error(error);
+
+    showToast('error', 'alert', 'error')
+
 }
 try {
     document.getElementById("id-FormAddAgent").addEventListener("submit", async e => {

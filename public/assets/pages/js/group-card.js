@@ -54,9 +54,18 @@ async function loadData() {
     $("#moneySum").html(currency(moneySum));
 }
 
-
+let submint_win = 0;
 try {
     document.getElementById("id-form-add").addEventListener("submit", async (e) => {
+
+
+        if (submint_win == 1) {
+            return false;
+        } else {
+            submint_win = 1;
+        }
+
+
 
         e.preventDefault();
 
@@ -82,7 +91,9 @@ try {
     })
 
 } catch (error) {
+    submint_win = 0;
     console.error(error);
+    showToast('error', 'alert', 'error')
 }
 
 
@@ -121,7 +132,11 @@ const ClickOpen = async (glco_ID) => {
     });
 }
 
+let count_stop = 0;
 const ClickStop = async (glco_ID) => {
+
+
+
 
     Swal.fire({
         title: "Are you sure?",
@@ -133,6 +148,13 @@ const ClickStop = async (glco_ID) => {
         confirmButtonText: "OK",
         // cancelButtonText: "OK"
     }).then((result) => {
+
+        if (count_stop == 1) {
+            return false;
+        } else {
+            count_stop = 1;
+        }
+
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",

@@ -32,12 +32,10 @@ class MessageLineApiController extends LineApiController
         header('Content-Type: application/json; charset=utf-8');
 
         // $LogsWebhookModel = new LogsWebhookModel();
-
-
         $content = file_get_contents('php://input');
         $events = (object) json_decode($content, TRUE);
 
-        // $this->log('events.json', $events);
+        $this->log('events.json', $events);
         // return $this->respond([], 200);
         if (isset($events->events) && !empty($events->events)) {
             // $LogsWebhookModel->save([
@@ -71,6 +69,9 @@ class MessageLineApiController extends LineApiController
 
     public function webhook_log($fileName = 'events.json')
     {
+
+        // echo WRITEPATH ;
+        // exit;
         header('Content-Type: application/json; charset=utf-8');
         $events = json_decode(file_get_contents(WRITEPATH . $fileName), TRUE);
         return $this->respond($events, 200);

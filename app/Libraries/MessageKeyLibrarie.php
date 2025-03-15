@@ -128,8 +128,6 @@ class MessageKeyLibrarie
         $GroupModel = new GroupModel();
         $GameRuleModel = new GameRuleModel();
 
-
-
         if (!isset($events['message']['text'])) {
             return TRUE;
         }
@@ -138,14 +136,16 @@ class MessageKeyLibrarie
         $memberRow = $MembersModel
             ->select("userId,user_remain,displayName,user_id")
             ->where("userId", $userId)
+            ->where("userDelete", '0')
             ->first();
-        if (empty($memberRow) || is_null($memberRow)) {
+
+        if (empty($memberRow)) {
             $Profile = $this->messagingApi->getGroupMemberProfile($groupId, $userId);
             $replyToken = $events['replyToken'];
             $message = [
                 [
                     'type' => 'text',
-                    'text' => 'TO : ' . $Profile->getDisplayName() . "\nยังไม่สมัครสมาชิกและผูกบัญชี\nคลิกลิงก์ :\n" . base_url()
+                    'text' => 'TO : ' . $Profile->getDisplayName() . "\n\nยังไม่สมัครสมาชิกและผูกบัญชี\nคลิกลิงก์ :\n" . base_url()
                 ]
             ];
 

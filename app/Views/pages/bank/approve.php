@@ -7,19 +7,22 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('style') ?>
-<link rel="stylesheet" href="<?= base_url("assets/pages/css/b-approve.css?v=") . time() ?>">
+<link rel="stylesheet" href="<?= base_url("assets/pages/css/b-approve.css") ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 
-<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> <?= lang('global.page.title') ?> /</span> <?= lang('users.TM3') ?></h4>
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> <?= lang('global.page.title') ?> /</span>
+    <?= lang('users.TM3') ?></h4>
 
 <div class="nav-align-top mb-4">
     <ul class="nav nav-tabs nav-fill" role="tablist">
         <li class="nav-item">
-            <button type="button" class="nav-link active  " role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-withdraw" aria-controls="navs-justified-withdraw" aria-selected="false">
+            <button type="button" class="nav-link active  " role="tab" data-bs-toggle="tab"
+                data-bs-target="#navs-justified-withdraw" aria-controls="navs-justified-withdraw" aria-selected="false">
                 <i class="tf-icons bx bx-user"></i> <?= lang('users.T7'); ?>
-                <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger"><?= count($statements ?? []) ?></span>
+                <span
+                    class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger"><?= count($statements ?? []) ?></span>
             </button>
         </li>
     </ul>
@@ -36,7 +39,8 @@
                             <th class="text-start">#</th>
                             <th class="text-start"><?= lang('global.text.date'); ?></th>
                             <th class="text-start"><?= lang('global.T2'); ?></th>
-                            <th class="text-start"><?= lang('global.page.member.show.text.table.statement.thead.detail'); ?></th>
+                            <th class="text-start">
+                                <?= lang('global.page.member.show.text.table.statement.thead.detail'); ?></th>
                             <th class="text-start"><?= lang('users.T8'); ?></th>
                             <th class="text-start"><?= lang('users.T18'); ?> - <?= lang('users.T19'); ?></th>
                             <th class="text-start"><?= lang('global.T3'); ?></th>
@@ -59,5 +63,5 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('script') ?>
-<script src="<?= base_url("assets/pages/js/b-approve.js?v=") . time() ?>"></script>
+<script src="<?= base_url("assets/pages/js/b-approve.js") ?>"></script>
 <?= $this->endSection() ?>

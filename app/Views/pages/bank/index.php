@@ -8,7 +8,7 @@
 
 
 <?= $this->section('style') ?>
-<link rel="stylesheet" href="<?= base_url("assets/pages/css/b-index.css?v=") . time() ?>">
+<link rel="stylesheet" href="<?= base_url("assets/pages/css/b-index.css") ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -162,5 +162,5 @@
 
 
 <?= $this->section('script') ?>
-<script src="<?= base_url("assets/pages/js/b-index.js?v=") . time() ?>"></script>
+<script src="<?= base_url("assets/pages/js/b-index.js") ?>"></script>
 <?= $this->endSection() ?>

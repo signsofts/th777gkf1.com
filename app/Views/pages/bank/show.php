@@ -1,8 +1,5 @@
 <?php
-
 use CodeIgniter\I18n\Time;
-
-
 ?>
 
 <?= $this->extend('layouts/layout') ?>
@@ -13,7 +10,7 @@ use CodeIgniter\I18n\Time;
 <?= $lang == "th" ? $bank->bank_name : $bank->bank_nameEN ?>
 <?= $this->endSection() ?>
 <?= $this->section('style') ?>
-<link rel="stylesheet" href="<?= base_url("assets/pages/css/b-show.css?v=") . time() ?>">
+<link rel="stylesheet" href="<?= base_url("assets/pages/css/b-show.css") ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -349,5 +346,5 @@ use CodeIgniter\I18n\Time;
 
 
 <?= $this->section('script') ?>
-<script src="<?= base_url("assets/pages/js/b-show.js?v=") . time() ?>"></script>
+<script src="<?= base_url("assets/pages/js/b-show.js") ?>"></script>
 <?= $this->endSection() ?>

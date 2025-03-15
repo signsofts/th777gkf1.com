@@ -36,6 +36,9 @@ class MessageLineApiLibraie
 
     public function MessageRequest($events)
     {
+
+        log_message("info", "121321313");
+
         $temp = [];
         foreach ($events->events as $evenk => $even):
             // $type = $even['type'];
@@ -92,13 +95,12 @@ class MessageLineApiLibraie
 
         $groupRow = $GroupModel->find($groupId);
 
-        // log_message("info", "groupRow" . json_encode($groupRow));
+        log_message("info", "groupRow" . json_encode($groupRow));
 
         if (is_null($groupRow)) {
             $GroupSummary = $LineMessagingApi->getGroupSummary($groupId);
-
-            // log_message("info", "getGroupSummary" . json_encode($GroupSummary));
-
+            log_message("info", "getGroupSummary" . json_encode($GroupSummary));
+ 
             // $this->log('events.json', $groupRow);   
 
             // $this->log('acclog.json', $GroupSummary);
@@ -231,6 +233,7 @@ class MessageLineApiLibraie
         // $GroupModel = new GroupModel();
         $type = $events['type'];
         // $groupId = $events['source']['groupId'];
+        log_message("info", "groupRow1");
 
         switch ($type) {
             case 'message':
