@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Share Link -->
-    <meta property="og:image" content="<?= base_url('icons/icon-b.png'); ?>">
+    <meta property="og:image" content="<?= base_url('assets/icons/icon-b.png'); ?>">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="BS8SttmJcndH1OlcZq2GKZ63EkBqTRKIk5cLD5sE">
-    <meta name="imageURI" content="<?= base_url('icons/icon-b.png'); ?>">
+    <meta name="imageURI" content="<?= base_url('assets/icons/icon-b.png'); ?>">
     <meta name="band" content="limbo">
     <meta name="regi_button" content="<?= lang("login.tfooter") ?>">
     <meta name="login_theme" content="login_theme_v1">
@@ -18,7 +18,7 @@
     <meta name="app_name" content="">
     <meta name="lang" content="">
     <meta name="bt" content="$2y$10$cEsaSj0QnTDXQEO4xOinlu9UoEpZjI1wrCyyFkbGBVE6bVBtHhhEK">
-    <link rel="icon" href="<?= base_url('icons/icon-b.png'); ?>" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('assets/icons/icon-b.png'); ?>" type="image/x-icon">
     <title><?= getenv("CI_TITLE") ?>
     </title>
     <meta name="description" content="<?= lang("login.description") ?>">
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="<?= site_url('assets/vendor/fontawesome/css/all.min.css') ?>" />
 
     <link rel="manifest" href="<?= base_url('manifest.json'); ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/icon-180x180.png">
     <meta name="theme-color" content="#212529">
 
 </head>
@@ -74,7 +74,7 @@
             <div class="center-login">
                 <div class="width-login">
                     <div class="margin-img">
-                        <img src="<?= base_url('icons/icon-n-b.png'); ?>" alt="login logo" width="100%" height="auto">
+                        <img src="<?= base_url('assets/icons/icon-n-b.png'); ?>" alt="login logo" width="100%" height="auto">
                     </div>
                     <div class="card">
                         <div class="card-body ">
